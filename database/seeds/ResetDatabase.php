@@ -13,6 +13,7 @@ class ResetDatabase extends Seeder
     {
         Schema::disableForeignKeyConstraints();
         DB::table('users')->truncate();
+        DB::table('laboratories')->truncate();
         Schema::enableForeignKeyConstraints();
     }
 }
