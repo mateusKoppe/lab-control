@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -20,20 +22,32 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function login(Request $request)
     {
-        $this->middleware('guest')->except('logout');
+        $validator = $this->validator($request->all());
+        if($validator->fails())
+            return response($validator->errors(), 417);
+        $credentials = $this->credentials($request);
+        $this->guard()->attempt($credentials);
+        if($this->guard()->check()){
+            return $this->guard()->user();
+        }
+        return response(['message' => 'fail to login'], 403);
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+          'email' => 'required|email',
+          'password' => 'required'
+        ]);
+    }
+
+    private function credentials(Request $request)
+    {
+        return [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
     }
 }
