@@ -17,7 +17,7 @@ class CreateLaboratoriesTable extends Migration
             $table->increments('id');
             $table->string('name', 85);
             $table->text('description')
-                ->nullanble();
+                ->nullable();
             $table->integer('accountable')
                 ->nullable()
                 ->unsigned();
