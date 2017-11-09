@@ -21,3 +21,5 @@ Route::namespace('Auth')->group(function() {
   Route::post('register', 'RegisterController@register');
   Route::post('login', 'LoginController@login');
 });
+
+Route::resource('laboratories', 'LaboratoryController')->middleware('auth:api');
