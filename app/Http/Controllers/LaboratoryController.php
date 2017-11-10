@@ -27,7 +27,7 @@ class LaboratoryController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all() ,[
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:85',
             'description' => 'string',
             'accountable' => 'exists:users,id',
