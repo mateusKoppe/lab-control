@@ -23,3 +23,13 @@ Route::namespace('Auth')->group(function() {
 });
 
 Route::resource('laboratories', 'LaboratoryController')->middleware('auth:api');
+
+Route::prefix('tools')
+    ->middleware('auth:api')
+    ->group(function() {
+        Route::post('list/{laboratory}', 'ToolController@store');
+        Route::get('list/{laboratory}', 'ToolController@index');
+        Route::get('item/{tool}', 'ToolController@show');
+        Route::put('item/{tool}', 'ToolController@update');
+        Route::delete('item/{tool}', 'ToolController@destroy');
+    });
