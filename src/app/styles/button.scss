@@ -1,0 +1,38 @@
+@import 'utils';
+
+@mixin button-color($color){
+  background-color: $color;
+  &:hover,
+  &:focus{
+    background-color: darken($color, 10);
+  }
+}
+
+.button{
+  background-color: gray("600");
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 24px;
+  padding: 10px 15px;
+  max-width: 100%;
+  min-width: 125px;
+  transition: .3s all ease;
+
+  &:hover,
+  &:focus{
+    background-color: darken(gray("600"), .2);
+    @include dp-shadow(2);
+  }
+}
+
+.button--primary{
+  @include button-color(primary-color());
+}
+
+.button--accent{
+  @include button-color(accent-color());
+}

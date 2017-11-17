@@ -1,8 +1,9 @@
 import angular from 'angular';
-import { HomeModule } from './home/home.module';
+
+import { LcUiModule } from './lc-ui/lc-ui.module';
 
 export const ComponentsModule = angular
   .module('components', [
-    HomeModule,
+    LcUiModule
   ])
   .name;

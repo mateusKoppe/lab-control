@@ -1,0 +1,15 @@
+@import '~app/styles/utils';
+
+login .login{
+  background-color: white;
+  box-sizing: border-box;
+  @include dp-shadow(2);
+  border-radius: 5px;
+  padding: 45px 20px;
+  width: 400px;
+  max-width: calc(100vw - 15px);
+
+  &__actions{
+    text-align: right;
+  }
+}
