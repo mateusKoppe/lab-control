@@ -8,10 +8,14 @@ const extractPlugin = new ExtractTextPlugin({
 })
 
 module.exports = {
-  entry: './src/app/app.module.js',
+  entry: './app/app.module.js',
+  context: path.resolve(__dirname, 'src'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+  },
+  resolve: {
+    modules: [path.resolve(__dirname, 'src'), "node_modules"],
   },
   module: {
     rules: [
@@ -59,7 +63,7 @@ module.exports = {
   plugins: [
     extractPlugin,
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'index.html'
     }),
     new CleanWebpackPlugin(['dist'])
   ]
