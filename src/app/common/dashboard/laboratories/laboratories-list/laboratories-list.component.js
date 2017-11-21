@@ -1,11 +1,11 @@
-import templateUrl from './laboratories.component.html';
-import './laboratories.component.scss';
+import templateUrl from './laboratories-list.component.html';
+import './laboratories-list.component.scss';
 
-export const LaboratoriesComponent = {
+export const LaboratoriesListComponent = {
   bindings: {},
   transclude: false,
   templateUrl,
-  controller: class LaboratoriesController {
+  controller: class LaboratoriesListController {
     constructor(LaboratoriesService){
       'ngInject';
       this._laboratoriesService = LaboratoriesService;
