@@ -11,12 +11,15 @@ export const DashboardModule = angular
     LaboratoriesModule,
   ])
   .component('dashboard', DashboardComponent)
-  .config($stateProvider => {
+  .config(($stateProvider, routeCheckLogin) => {
     'ngInject';
     $stateProvider
       .state('dashboard', {
         url: '/dashboard',
         component: 'dashboard',
+        resolve: {
+          checkLogin: routeCheckLogin
+        }
       });
   })
   .name;
