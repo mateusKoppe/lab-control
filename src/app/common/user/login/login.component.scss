@@ -4,7 +4,6 @@ login .login{
   @extend .card;
   padding: 45px 20px;
   width: 400px;
-  max-width: calc(100vw - 15px);
 
   &__actions{
     text-align: right;

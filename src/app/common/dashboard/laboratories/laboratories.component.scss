@@ -1,0 +1,5 @@
+@import '~app/styles/utils';
+
+laboratories .laboratories {
+  @extend .card;
+}

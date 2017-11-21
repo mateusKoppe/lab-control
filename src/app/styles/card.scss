@@ -1,8 +1,9 @@
 .card{
+  @include dp-shadow(2);
   background-color: white;
   box-sizing: border-box;
-  @include dp-shadow(2);
   border-radius: 5px;
+  max-width: calc(100vw - 15px);
   padding: 15px;
   width: 100%;
 }

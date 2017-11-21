@@ -15,7 +15,7 @@ export const LaboratoriesComponent = {
 
     _loadLaboratories(){
       this._laboratoriesService.getLaboratories()
-        .then(laboratories => this.laboratories = laboratories)
+        .then(laboratories => this.laboratories = laboratories.data)
         .catch(error => console.error(error));
     }
   }
