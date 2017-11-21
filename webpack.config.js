@@ -17,6 +17,7 @@ module.exports = {
   resolve: {
     modules: [path.resolve(__dirname, 'src'), "node_modules"],
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -34,7 +35,18 @@ module.exports = {
       {
         test: /\.scss$/,
         use: extractPlugin.extract({
-          use: ['css-loader', 'sass-loader']
+          use: [
+            {
+              loader: "css-loader", options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: "sass-loader", options: {
+                sourceMap: true
+              }
+            }
+          ]
         })
       },
       {
