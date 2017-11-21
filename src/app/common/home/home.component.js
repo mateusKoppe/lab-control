@@ -4,14 +4,18 @@ import './home.component.scss';
 export const HomeComponent = {
   templateUrl,
   controller: class HomeController{
+    constructor($state){
+      'ngInject';
+      this._state = $state;
+    }
+
     onLogin(user){
-      console.log(user);
-      alert('Login with success');
+      this._state.go('dashboard');
     }
 
     handleLoginError(error){
       alert('Fail to login');
-      console.error('fail to login', errr);
+      console.error('fail to login', error);
     }
   }
 };

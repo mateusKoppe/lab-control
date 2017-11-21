@@ -1,11 +1,13 @@
 export class UserService {
-  constructor($http){
+  constructor($http, $filter){
     'ngInject';
-    this.http = $http;
+    this._http = $http;
+    this._filter = $filter;
+    this.user = false;
   }
 
   login(user){
-    console.log(user);
-    return this.http.post('http://localhost:8000/api/login', user);
+    return this._http.post(`${this._filter('apiUrl')('login')}`, user)
+      .then(user => this.user = user.data);
   }
 }
