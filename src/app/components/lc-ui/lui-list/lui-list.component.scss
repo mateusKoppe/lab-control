@@ -1,0 +1,16 @@
+@import '~app/styles/utils';
+
+lui-list .lui-list{
+  padding-left: 0;
+  list-style: none;
+
+  li{
+    border-top: 1px solid gray("300");
+    padding: .85em .2em;
+    cursor: pointer;
+
+    &:first-child{
+      border-top: none;
+    }
+  }
+}
