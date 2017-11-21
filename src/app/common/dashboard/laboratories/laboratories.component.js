@@ -13,6 +13,10 @@ export const LaboratoriesComponent = {
       this._loadLaboratories();
     }
 
+    laboratoryClick(laboratory){
+      console.log('laboratory', laboratory);
+    }
+
     _loadLaboratories(){
       this._laboratoriesService.getLaboratories()
         .then(laboratories => this.laboratories = laboratories.data)

@@ -1,5 +1,5 @@
 <div class="laboratories">
-  <ul>
-    <li ng-repeat="laboratory in $ctrl.laboratories">{{laboratory.name}}</li>
-  </ul>
+  <lui-list>
+    <li ng-repeat="laboratory in $ctrl.laboratories" ng-click="$ctrl.laboratoryClick(laboratory)">{{laboratory.name}}</li>
+  </lui-list>
 </div>

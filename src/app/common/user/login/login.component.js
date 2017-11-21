@@ -11,14 +11,13 @@ export const LoginComponent = {
   controller: class LoginController {
     constructor(UserService){
       'ngInject';
-      this.userService = UserService;
+      this._userService = UserService;
     }
 
     login(){
-      this.userService.login(this.user)
+      this._userService.login(this.user)
         .then(data => this.onLoginSuccess({user: data}))
-        .catch(error => this.onLoginError({error}))
-      ;
+        .catch(error => this.onLoginError({error}));
     }
   }
 };
