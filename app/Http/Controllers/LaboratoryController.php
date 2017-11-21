@@ -49,7 +49,7 @@ class LaboratoryController extends Controller
         if(!$laboratory->hasPermission($user)){
             return response(['message' => 'Permission denied'], 403);
         }
-        return $user;
+        return $laboratory;
     }
 
     /**
