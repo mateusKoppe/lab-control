@@ -1,10 +1,7 @@
 <div class="laboratory">
   <div class="laboratory__info">
+    <h1>{{$ctrl.laboratory.name}}</h1>
     <table>
-      <tr>
-        <th>Name:</th>
-        <td>{{$ctrl.laboratory.name}}</td>
-      </tr>
       <tr>
         <th>Description:</th>
         <td>{{$ctrl.laboratory.description}}</td>
@@ -17,4 +14,5 @@
     <h2>Tools</h2>
     <tools-list laboratory="$ctrl.laboratory"></tools-list>
   </div>
+  <lui-float-button ng-init="$ctrl.theme = 'primary'" ng-click="$ctrl.theme = 'accent'" theme="$ctrl.theme">+</lui-float-button>
 </div>
