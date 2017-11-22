@@ -17,4 +17,8 @@ export const AppModule = angular
     $locationProvider.html5Mode(false);
     $urlRouterProvider.otherwise('/');
   })
+  .config(ApiServiceProvider => {
+    ApiServiceProvider.url = 'http://localhost:8000/api';
+    console.log(ApiServiceProvider);
+  })
   .name;
