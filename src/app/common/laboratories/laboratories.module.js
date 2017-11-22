@@ -1,6 +1,7 @@
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 
+import { ToolsModule } from './tools/tools.module';
 import { LaboratoriesListComponent } from './laboratories-list/laboratories-list.component';
 import { LaboratoryComponent } from './laboratory/laboratory.component';
 import { LaboratoriesService } from './laboratories.service';
@@ -8,6 +9,7 @@ import { LaboratoriesService } from './laboratories.service';
 export const LaboratoriesModule = angular
   .module('laboratories', [
     uiRouter,
+    ToolsModule,
   ])
   .service('LaboratoriesService', LaboratoriesService)
   .component('laboratoriesList', LaboratoriesListComponent)
