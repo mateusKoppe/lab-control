@@ -19,6 +19,5 @@ export const AppModule = angular
   })
   .config(ApiServiceProvider => {
     ApiServiceProvider.url = 'http://localhost:8000/api';
-    console.log(ApiServiceProvider);
   })
   .name;

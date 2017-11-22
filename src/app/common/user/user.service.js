@@ -21,7 +21,6 @@ export class UserService {
   loginSession(){
     let deferred = this._q.defer();
     let token = localStorage.getItem('user');
-    console.log(token);
     if(token){
       this.getUser(token)
         .then(user => {
