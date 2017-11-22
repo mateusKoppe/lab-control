@@ -1,6 +1,16 @@
 @import '~app/styles/utils';
 
-.lui-input{
+@mixin lui-input-color($color){
+  .lui-input__label{
+    color: $color;
+  }
+  .lui-input__input{
+    border-color: $color;
+  }
+}
+
+lui-input .lui-input{
+  @include lui-input-color(gray("400"));
   margin-top: 10px;
   margin-bottom: 10px;
   position: relative;
@@ -9,7 +19,6 @@
 
   &__label{
     background-color: white;
-    color: gray("400");
     left: 12px;
     padding: 0 2px;
     position: absolute;
@@ -19,7 +28,8 @@
   &__input{
     background-color: white;
     box-sizing: border-box;
-    border: 2px solid gray("400");
+    border-style: solid;
+    border-width: 2px;
     border-radius: 10px;
     font-size: 16px;
     height: 2.9em;
@@ -36,23 +46,14 @@
       @include dp-shadow(1);
     }
   }
-}
 
-@mixin lui-input-color($color){
-  .lui-input__label{
-    color: $color;
+  &--primary{
+    @extend .lui-input;
+    @include lui-input-color(primary-color());
   }
-  .lui-input__input{
-    border-color: $color;
+
+  &--accent{
+    @extend .lui-input;
+    @include lui-input-color(accent-color());
   }
-}
-
-lui-input .lui-input--primary{
-  @extend .lui-input;
-  @include lui-input-color(primary-color());
-}
-
-lui-input .lui-input--accent{
-  @extend .lui-input;
-  @include lui-input-color(accent-color());
 }

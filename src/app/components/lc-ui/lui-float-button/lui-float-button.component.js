@@ -1,15 +1,13 @@
-import templateUrl from './lui-input.component.html';
-import './lui-input.component.scss';
+import templateUrl from './lui-float-button.component.html';
+import './lui-float-button.component.scss';
 
-export const LuiInputComponent = {
+export const LuiFloatButtonComponent = {
   bindings: {
-    type: '@',
-    ngModel: '=',
     theme: '<',
   },
   transclude: true,
   templateUrl,
-  controller: class LuiInputController {
+  controller: class LuiFloatButtonController {
     constructor(){
       'ngInject';
       this.class = {};
@@ -23,7 +21,7 @@ export const LuiInputComponent = {
     }
 
     _refreshClass(){
-      this.class = {[`lui-input--${this.theme}`]: true};
+      this.class = {[`lui-float-button--${this.theme}`]: true};
     }
   }
 };
