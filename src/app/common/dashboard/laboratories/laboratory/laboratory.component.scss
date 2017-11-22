@@ -1,0 +1,12 @@
+@import '~app/styles/utils';
+
+laboratory .laboratory{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+
+  &__info{
+    @extend .card;
+  }
+}

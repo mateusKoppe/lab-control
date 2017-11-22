@@ -6,15 +6,16 @@ export const LaboratoriesListComponent = {
   transclude: false,
   templateUrl,
   controller: class LaboratoriesListController {
-    constructor(LaboratoriesService){
+    constructor(LaboratoriesService, $state){
       'ngInject';
-      this._laboratoriesService = LaboratoriesService;
       this.laboratories = false;
+      this._laboratoriesService = LaboratoriesService;
+      this._state = $state;
       this._loadLaboratories();
     }
 
     laboratoryClick(laboratory){
-      console.log('laboratory', laboratory);
+      this._state.go('laboratory', {id: laboratory.id});
     }
 
     _loadLaboratories(){

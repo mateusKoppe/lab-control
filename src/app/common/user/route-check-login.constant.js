@@ -1,8 +1,5 @@
 export const RouteCheckLoginConstant = (UserService, $state) => {
-  UserService.loginSession()
-    .then(data => $state.go('dashboard'));
-  if(!UserService.user){
-    $state.go('home');
-  }
-  return true;
+  if(UserService.user) return true;
+  return UserService.loginSession()
+    .catch(() => $state.go('home'));
 };
