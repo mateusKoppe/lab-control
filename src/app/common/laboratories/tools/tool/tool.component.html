@@ -1,1 +1,39 @@
-<div></div>
+<div class="tool">
+  <div class="tool__info">
+    <h2>{{$ctrl.tool.name}}</h2>
+    <div>{{$ctrl.tool.description}}</div>
+    <table>
+      <tr>
+        <th>Status: </th>
+        <td>{{$ctrl.tool.status}}</td>
+      </tr>
+      <tr>
+        <th>Place: </th>
+        <td>{{$ctrl.tool.place}}</td>
+      </tr>
+      <tr>
+        <th>Laboratory: </th>
+        <td>{{$ctrl.tool.laboratory}}</td>
+      </tr>
+    </table>
+    <div class="group-buttons">
+      <button ng-click="$ctrl.editTool()" class="button button--accent">Edit</button>
+    </div>
+    <lui-alert open="$ctrl.formToolAlertOpen">
+      <form ng-submit="$ctrl.addToolSubmit()">
+        <lui-input ng-model="$ctrl.formTool.name" theme="'primary'">Name</lui-input>
+        <lui-input ng-model="$ctrl.formTool.place" theme="'primary'">Place</lui-input>
+        <lui-select ng-model="$ctrl.formTool.status" theme="'primary'" placeholder="Status">
+          <option value="enable">Enable</option>
+          <option value="alocated">Alocated</option>
+          <option value="disabled">Disabled</option>
+        </lui-select>
+        <lui-textarea ng-model="$ctrl.formTool.description" theme="'primary'">Description</lui-textarea>
+        <div class="group-buttons">
+          <button class="button button--primary">Save</button>
+          <button type="button" class="button" ng-click="$ctrl.closeForm()">Cancel</button>
+        </div>
+     </form>
+    </lui-alert>
+  </div>
+</div>

@@ -7,10 +7,11 @@ export const ToolsListComponent = {
   transclude: false,
   templateUrl,
   controller: class ToolsListController {
-    constructor($scope, ToolsService){
+    constructor($scope, $state, ToolsService){
       'ngInject';
       this._toolsService = ToolsService;
       this._scope = $scope;
+      this._state = $state;
     }
 
     $onInit(){
@@ -27,5 +28,9 @@ export const ToolsListComponent = {
           .then(tools => this.tools = tools.data);
       }
     };
+
+    toolClick(tool){
+      this._state.go('tool', {id: tool.id});
+    }
   }
 };

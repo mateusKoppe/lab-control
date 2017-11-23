@@ -11,6 +11,10 @@ export class ToolsService {
     return this._http.post(`${this._filter('apiUrl')(`tools/list/${laboratory.id}`, this._userService.user.api_token)}`, tool);
   }
 
+  getToolFromId(id){
+    return this._http.get(`${this._filter('apiUrl')(`tools/item/${id}`, this._userService.user.api_token)}`);
+  }
+
   getToolsByLaboratory(laboratory){
     return this.getToolsByLaboratoryId(laboratory.id);
   }
