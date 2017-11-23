@@ -7,9 +7,17 @@ export const ToolsListComponent = {
   transclude: false,
   templateUrl,
   controller: class ToolsListController {
-    constructor($scope, $timeout, ToolsService){
+    constructor($scope, ToolsService){
       'ngInject';
       this._toolsService = ToolsService;
+      this._scope = $scope;
+    }
+
+    $onInit(){
+      this._scope.$on('addTool', (event, tool) => {
+        console.log(tool);
+        this.tools.push(tool);
+      })
     }
 
     $onChanges(changes) {

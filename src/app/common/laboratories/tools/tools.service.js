@@ -6,6 +6,11 @@ export class ToolsService {
     this._filter = $filter;
   }
 
+  saveTool(laboratory, tool){
+    tool.laboratory = laboratory.id;
+    return this._http.post(`${this._filter('apiUrl')(`tools/list/${laboratory.id}`, this._userService.user.api_token)}`, tool);
+  }
+
   getToolsByLaboratory(laboratory){
     return this.getToolsByLaboratoryId(laboratory.id);
   }
