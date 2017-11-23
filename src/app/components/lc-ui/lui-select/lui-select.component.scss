@@ -1,21 +1,30 @@
 @import '~app/styles/utils';
 
-@mixin lui-input-color($color){
-  .lui-input__label{
+@mixin lui-select-color($color){
+  .lui-select__label{
     color: $color;
   }
-  .lui-input__input{
+  .lui-select__input{
     border-color: $color;
   }
 }
 
-lui-input .lui-input{
-  @include lui-input-color(gray("400"));
+lui-select .lui-select{
+  @include lui-select-color(gray("400"));
   margin-top: 10px;
   margin-bottom: 10px;
   position: relative;
   width: 100%;
   box-sizing: border-box;
+
+  // &::after{
+  //   content: "\f0d7";
+  //   font-family: "FontAwesome";
+  //   right: 20px;
+  //   position: absolute;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  // }
 
   &__label{
     background-color: white;
@@ -48,10 +57,10 @@ lui-input .lui-input{
   }
 
   &--primary{
-    @include lui-input-color(primary-color());
+    @include lui-select-color(primary-color());
   }
 
   &--accent{
-    @include lui-input-color(accent-color());
+    @include lui-select-color(accent-color());
   }
 }
