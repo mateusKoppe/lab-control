@@ -36,3 +36,16 @@
 .button--accent{
   @include button-color(accent-color());
 }
+
+.group-buttons{
+  display: flex;
+
+  .button{
+    margin-right: 10px;
+    width: 100%;
+
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+}
