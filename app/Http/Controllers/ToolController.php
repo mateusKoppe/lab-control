@@ -34,7 +34,6 @@ class ToolController extends Controller
         if(!$laboratory->hasPermission($user))
             return response()->json(['message' => 'Permission denied'], 403);
         $validator = Validator::make($request->all(), [
-            'label' => 'required|string|max:64|unique:tools',
             'name' => 'required|string|min:2|max:64',
             'laboratory' => 'required|integer|exists:laboratories,id',
             'status' => 'string|in:enable,alocated,disable',

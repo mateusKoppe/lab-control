@@ -12,6 +12,6 @@ class Tool extends Model
     }
 
     protected $fillable = [
-        'label', 'name', 'laboratory', 'status', 'description', 'place',
+        'name', 'laboratory', 'status', 'description', 'place',
     ];
 }
