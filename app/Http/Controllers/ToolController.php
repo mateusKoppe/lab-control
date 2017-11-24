@@ -36,13 +36,14 @@ class ToolController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|min:2|max:64',
             'laboratory' => 'required|integer|exists:laboratories,id',
-            'status' => 'string|in:enable,alocated,disable',
+            'status' => 'string|in:enable,alocated,disabled',
             'place' => 'string|max:85',
         ]);
         if($validator->fails())
             return response($validator->errors(), 417);
+        $tool = Tool::create($request->all());
         $tool->laboratory = $laboratory;
-        return Tool::create($request->all());
+        return $tool;
     }
 
     /**
@@ -77,13 +78,13 @@ class ToolController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'string|min:2|max:64',
             'laboratory' => 'integer|exists:laboratories,id',
-            'status' => 'string|in:enable,alocated,disable',
+            'status' => 'string|in:enable,alocated,disabled',
             'place' => 'string|max:85',
         ]);
         if($validator->fails())
             return response($validator->errors(), 417);
-        $tool->laboratory = $laboratory;
         $tool->update($request->all());
+        $tool->laboratory = $laboratory;
         return $tool;
     }
 
