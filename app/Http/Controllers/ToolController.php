@@ -41,6 +41,7 @@ class ToolController extends Controller
         ]);
         if($validator->fails())
             return response($validator->errors(), 417);
+        $tool->laboratory = $laboratory;
         return Tool::create($request->all());
     }
 
@@ -81,6 +82,7 @@ class ToolController extends Controller
         ]);
         if($validator->fails())
             return response($validator->errors(), 417);
+        $tool->laboratory = $laboratory;
         $tool->update($request->all());
         return $tool;
     }
