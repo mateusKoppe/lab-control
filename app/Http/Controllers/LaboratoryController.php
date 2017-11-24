@@ -34,6 +34,7 @@ class LaboratoryController extends Controller
         ]);
         if($validator->fails())
             return response($validator->errors(), 417);
+        $laboratory->accountable = $user;
         return Laboratory::create($request->all());
     }
 
@@ -74,6 +75,7 @@ class LaboratoryController extends Controller
             return response(['message' => 'Permission denied'], 403);
         }
         $laboratory->update($request->all());
+        $laboratory->accountable = $user;
         return $laboratory;
     }
 
