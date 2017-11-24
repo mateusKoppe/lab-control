@@ -1,3 +1,4 @@
+
 export class ToolsService {
   constructor($http, UserService, $filter){
     'ngInject';
@@ -7,8 +8,17 @@ export class ToolsService {
   }
 
   saveTool(laboratory, tool){
-    tool.laboratory = laboratory.id;
-    return this._http.post(`${this._filter('apiUrl')(`tools/list/${laboratory.id}`, this._userService.user.api_token)}`, tool);
+    let dataTool = angular.copy(tool);
+    dataTool.laboratory = laboratory.id;
+    return this._http.post(`${this._filter('apiUrl')(`tools/list/${laboratory.id}`, this._userService.user.api_token)}`, dataTool);
+  }
+
+  updateTool(laboratory, tool){
+    let dataTool = angular.copy(tool);
+    delete dataTool.laboratory;
+    delete dataTool.created_at;
+    delete dataTool.updated_at;
+    return this._http.put(`${this._filter('apiUrl')(`tools/item/${dataTool.id}`, this._userService.user.api_token)}`, dataTool);
   }
 
   getToolFromId(id){

@@ -1,7 +1,7 @@
 <div class="tool">
   <div class="tool__info">
     <h2>{{$ctrl.tool.name}}</h2>
-    <div>{{$ctrl.tool.description}}</div>
+    <p>{{$ctrl.tool.description}}</p>
     <table>
       <tr>
         <th>Status: </th>
@@ -13,20 +13,20 @@
       </tr>
       <tr>
         <th>Laboratory: </th>
-        <td>{{$ctrl.tool.laboratory}}</td>
+        <td>{{$ctrl.tool.laboratory.name}}</td>
       </tr>
     </table>
     <div class="group-buttons">
       <button ng-click="$ctrl.editTool()" class="button button--accent">Edit</button>
     </div>
     <lui-alert open="$ctrl.formToolAlertOpen">
-      <form ng-submit="$ctrl.addToolSubmit()">
+      <form ng-submit="$ctrl.formToolSubmit()">
         <lui-input ng-model="$ctrl.formTool.name" theme="'primary'">Name</lui-input>
         <lui-input ng-model="$ctrl.formTool.place" theme="'primary'">Place</lui-input>
         <lui-select ng-model="$ctrl.formTool.status" theme="'primary'" placeholder="Status">
           <option value="enable">Enable</option>
           <option value="alocated">Alocated</option>
-          <option value="disabled">Disabled</option>
+          <option value="disable">Disable</option>
         </lui-select>
         <lui-textarea ng-model="$ctrl.formTool.description" theme="'primary'">Description</lui-textarea>
         <div class="group-buttons">

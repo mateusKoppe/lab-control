@@ -23,6 +23,15 @@ export const ToolComponent = {
       this.formToolAlertOpen = true;
     }
 
+    formToolSubmit(){
+      this._toolsService.updateTool(this.tool.laboratory, this.formTool)
+        .then(response => {
+          this.tool = response.data;
+          this.formTool = {};
+          this.closeForm();
+        })
+    }
+
     closeForm(){
       this.formTool = {};
       this.formToolAlertOpen = false;
