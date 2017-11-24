@@ -56,6 +56,7 @@ class ToolController extends Controller
         $laboratory = $tool->getLaboratory();
         if(!$laboratory->hasPermission($user))
             return response()->json(['message' => 'Permission denied'], 403);
+        $tool->laboratory = $laboratory;
         return $tool;
     }
 
