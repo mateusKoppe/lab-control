@@ -36,7 +36,7 @@ class ToolController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|min:2|max:64',
             'laboratory' => 'required|integer|exists:laboratories,id',
-            'status' => 'string|in:enable,alocated,disabled',
+            'status' => 'string|in:enable,alocated,disable',
             'place' => 'string|max:85',
         ]);
         if($validator->fails())
@@ -78,7 +78,7 @@ class ToolController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'string|min:2|max:64',
             'laboratory' => 'integer|exists:laboratories,id',
-            'status' => 'string|in:enable,alocated,disabled',
+            'status' => 'string|in:enable,alocated,disable',
             'place' => 'string|max:85',
         ]);
         if($validator->fails())
