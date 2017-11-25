@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Laboratory;
+use App\User;
 use Illuminate\Support\Facades\Validator;
 
 class LaboratoryController extends Controller
@@ -15,8 +16,9 @@ class LaboratoryController extends Controller
      */
     public function index(Request $request)
     {
-        $user = $request->user();
-        return Laboratory::where('accountable', $user->id)->get();
+        return Laboratory::all();
+        // $user = $request->user();
+        // return Laboratory::where('accountable', $user->id)->get();
     }
 
     /**
@@ -47,11 +49,7 @@ class LaboratoryController extends Controller
      */
     public function show(Request $request, Laboratory $laboratory)
     {
-        $user = $request->user();
-        if(!$laboratory->hasPermission($user)){
-            return response(['message' => 'Permission denied'], 403);
-        }
-        $laboratory->accountable = $user;
+        $laboratory->accountable = User::find($laboratory->accountable);
         return $laboratory;
     }
 

@@ -16,9 +16,6 @@ class ToolController extends Controller
      */
     public function index(Request $request, Laboratory $laboratory)
     {
-        $user = $request->user();
-        if(!$laboratory->hasPermission($user))
-            return response()->json(['message' => 'Permission denied'], 403);
         return Tool::where('laboratory', $laboratory->id)->get();
     }
 
@@ -54,11 +51,7 @@ class ToolController extends Controller
      */
     public function show(Request $request, Tool $tool)
     {
-        $user = $request->user();
-        $laboratory = $tool->getLaboratory();
-        if(!$laboratory->hasPermission($user))
-            return response()->json(['message' => 'Permission denied'], 403);
-        $tool->laboratory = $laboratory;
+        $tool->laboratory = $tool->getLaboratory();
         return $tool;
     }
 

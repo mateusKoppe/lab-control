@@ -26,14 +26,21 @@ Route::namespace('Auth')->group(function() {
   Route::post('login', 'LoginController@login');
 });
 
-Route::resource('laboratories', 'LaboratoryController')->middleware('auth:api');
+
+Route::prefix('laboratories')
+    ->group(function() {
+        Route::post('', 'LaboratoryController@store')->middleware('auth:api');
+        Route::get('', 'LaboratoryController@index');
+        Route::get('{laboratory}', 'LaboratoryController@show');
+        Route::put('{laboratory}', 'LaboratoryController@update')->middleware('auth:api');
+        Route::delete('{laboratory}', 'LaboratoryController@destroy')->middleware('auth:api');
+    });
 
 Route::prefix('tools')
-    ->middleware('auth:api')
     ->group(function() {
-        Route::post('list/{laboratory}', 'ToolController@store');
+        Route::post('list/{laboratory}', 'ToolController@store')->middleware('auth:api');
         Route::get('list/{laboratory}', 'ToolController@index');
         Route::get('item/{tool}', 'ToolController@show');
-        Route::put('item/{tool}', 'ToolController@update');
-        Route::delete('item/{tool}', 'ToolController@destroy');
+        Route::put('item/{tool}', 'ToolController@update')->middleware('auth:api');
+        Route::delete('item/{tool}', 'ToolController@destroy')->middleware('auth:api');
     });
