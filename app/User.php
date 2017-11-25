@@ -16,13 +16,17 @@ class User extends Authenticatable
       return $this->api_token;
     }
 
+    public function hasPermissionLevel(integer $level){
+      return $this->permission >= $level;
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'api_token',
+        'name', 'email', 'password', 'api_token', 'permission'
     ];
 
     /**
