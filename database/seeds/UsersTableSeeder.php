@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         $faker = Faker::create();
         User::create([
           'name' => 'Bruce Wayne',
-          'email' => 'bruce@waynelta.com',
+          'email' => 'bruce@wayneent.com',
           'password' => bcrypt('imbatman'),
           'api_token' => 'MDSU4AAp6gSQBpJW2Gcbp4RYaOMdIULmVQ1XkgDnq2FTPtTkTkj7DrrdINC87JcY',
         ]);
@@ -24,6 +24,7 @@ class UsersTableSeeder extends Seeder
           User::create([
             'name' => $faker->name,
             'email' => $faker->email,
+            'permission' => 3,
             'password' => bcrypt('secret'),
           ])->generateToken();
         }
