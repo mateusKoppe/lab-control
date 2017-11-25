@@ -11,6 +11,6 @@ export class LaboratoriesService {
   }
 
   getLaboratory(id){
-    return this._http.get(`${this._filter('apiUrl')(`laboratories/${id}`}`);
+    return this._http.get(`${this._filter('apiUrl')(`laboratories/${id}`)}`);
   }
 }

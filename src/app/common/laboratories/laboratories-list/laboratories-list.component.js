@@ -1,5 +1,4 @@
 import templateUrl from './laboratories-list.component.html';
-import './laboratories-list.component.scss';
 
 export const LaboratoriesListComponent = {
   bindings: {},

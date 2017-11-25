@@ -1,7 +1,20 @@
+@import '~app/styles/utils';
+
 dashboard .dashboard{
-  align-items: center;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  padding: 15px;
+
+  &__box__header{
+    @extend .card__header;
+  }
+
+  &__box__info{
+    @extend .card;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 }
