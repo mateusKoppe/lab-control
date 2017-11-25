@@ -1,4 +1,8 @@
 <div class="tool">
+  <header class="tool__header">
+    <a class="header__icon" ui-sref="laboratory({id: $ctrl.tool.laboratory.id})"><i class="fa fa-arrow-left"></i></a>
+    <h2 class="header__title">Tool</h2>
+  </header>
   <div class="tool__info">
     <h2>{{$ctrl.tool.name}}</h2>
     <p>{{$ctrl.tool.description}}</p>
@@ -13,7 +17,7 @@
       </tr>
       <tr>
         <th>Laboratory: </th>
-        <td>{{$ctrl.tool.laboratory.name}}</td>
+        <td><a ui-sref="laboratory({id: $ctrl.tool.laboratory.id})">{{$ctrl.tool.laboratory.name}}</a></td>
       </tr>
     </table>
     <div class="group-buttons">

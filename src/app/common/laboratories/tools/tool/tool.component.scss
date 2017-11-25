@@ -8,11 +8,13 @@ tool .tool{
   min-height: 100vh;
   padding: 15px;
 
-  @media (min-width: 475px){
-    align-items: center;
+  &__header{
+    @extend .card__header;
   }
 
   &__info{
     @extend .card;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 }
