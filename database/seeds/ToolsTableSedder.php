@@ -17,7 +17,6 @@ class ToolsTableSedder extends Seeder
         $faker = Faker::create();
         Tool::create([
             'name' => 'Double Screwdrive',
-            'label' => 'double_screwdrive_1',
             'laboratory' => 1,
             'status' => 'enable',
             // 'description' => '',
@@ -36,10 +35,6 @@ class ToolsTableSedder extends Seeder
                 'Computer',
             ];
             $name = $name[array_rand($name)];
-            $label = str_replace(' ', '_', strtolower($name));
-            if(!isset($tools_names_quantiy[$label])) $tools_names_quantiy[$label] = 0;
-            $tools_names_quantiy[$label]++;
-            $label .= "_" . $tools_names_quantiy[$label];
             $status = rand(0, 3);
             switch($status){
                 case 0:
@@ -55,7 +50,6 @@ class ToolsTableSedder extends Seeder
             }
             Tool::create([
                 'name' => $name,
-                'label' => $label,
                 'laboratory' => $faker->randomElement(Laboratory::pluck('id')->toArray()),
                 'status' => $status,
                 'description' => rand(0,1) ? $faker->sentence(rand(3,8)) : null,
