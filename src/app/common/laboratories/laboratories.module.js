@@ -20,9 +20,6 @@ export const LaboratoriesModule = angular
       .state('laboratory', {
         url: '/laboratory/{id}',
         component: 'laboratory',
-        resolve: {
-          checkLogin: routeCheckLogin
-        }
       })
   })
   .name;

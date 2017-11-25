@@ -17,9 +17,6 @@ export const ToolsModule = angular
       .state('tool', {
         url: '/tool/{id}',
         component: 'tool',
-        resolve: {
-          checkLogin: routeCheckLogin
-        }
       })
   })
   .name;
