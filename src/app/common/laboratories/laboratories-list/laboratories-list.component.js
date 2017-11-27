@@ -5,20 +5,27 @@ export const LaboratoriesListComponent = {
   transclude: false,
   templateUrl,
   controller: class LaboratoriesListController {
-    constructor(LaboratoriesService, $state){
+    constructor($state, $scope, LaboratoriesService){
       'ngInject';
       this.laboratories = false;
-      this._laboratoriesService = LaboratoriesService;
-      this._state = $state;
+      this.$state = $state;
+      this.$scope = $scope;
+      this.LaboratoriesService = LaboratoriesService;
+    }
+
+    $onInit(){
       this._loadLaboratories();
+      this.$scope.$on('addLaboratory', (event, laboratory) => {
+        this.laboratories.push(laboratory);
+      });
     }
 
     laboratoryClick(laboratory){
-      this._state.go('laboratory', {id: laboratory.id});
+      this.$state.go('laboratory', {id: laboratory.id});
     }
 
     _loadLaboratories(){
-      this._laboratoriesService.getLaboratories()
+      this.LaboratoriesService.getLaboratories()
         .then(laboratories => this.laboratories = laboratories.data)
         .catch(error => console.error(error));
     }
