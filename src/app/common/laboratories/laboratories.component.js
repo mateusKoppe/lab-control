@@ -6,14 +6,23 @@ export const LaboratoriesComponent = {
   transclude: false,
   templateUrl,
   controller: class LaboratoriesController {
-    constructor($scope, LaboratoriesService){
+    constructor($scope, UserService, LaboratoriesService){
       'ngInject';
       this.$scope = $scope;
       this.LaboratoriesService = LaboratoriesService;
+      this.UserService = UserService;
     }
 
     $onInit(){
       this.addFormAlert = false;
+      this.user = false;
+      this._loadUser();
+    }
+
+    _loadUser(){
+      this.UserService.getLoggedUser()
+        .then(user => this.user = user)
+        .then(console.log);
     }
 
     addFormOpen(){
