@@ -8,7 +8,7 @@ class Laboratory extends Model
 {
     public function hasPermission(User $user)
     {
-        return $user->id === $this->accountable;
+        return $user->id === $this->accountable || $user->hasPermissionLevel(2);
     }
 
     protected $fillable = [

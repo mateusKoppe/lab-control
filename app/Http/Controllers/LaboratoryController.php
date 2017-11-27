@@ -37,7 +37,7 @@ class LaboratoryController extends Controller
         if($validator->fails())
             return response($validator->errors(), 417);
         $laboratory = Laboratory::create($request->all());
-        $laboratory->accountable = $user;
+        $laboratory->accountable = User::find($laboratory->accountable);
         return $laboratory;
     }
 

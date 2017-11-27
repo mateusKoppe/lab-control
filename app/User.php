@@ -16,8 +16,8 @@ class User extends Authenticatable
       return $this->api_token;
     }
 
-    public function hasPermissionLevel(integer $level){
-      return $this->permission >= $level;
+    public function hasPermissionLevel(int $level){
+      return $this->permission <= $level;
     }
 
     /**
