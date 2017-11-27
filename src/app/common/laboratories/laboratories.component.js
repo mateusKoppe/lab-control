@@ -22,7 +22,6 @@ export const LaboratoriesComponent = {
     _loadUser(){
       this.UserService.getLoggedUser()
         .then(user => this.user = user)
-        .then(console.log);
     }
 
     addFormOpen(){

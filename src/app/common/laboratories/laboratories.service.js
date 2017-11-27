@@ -8,7 +8,6 @@ export class LaboratoriesService {
 
   saveLaboratory(laboratory){
     const laboratoryData = angular.copy(laboratory);
-    console.log(laboratoryData, this.UserService.user);
     return this.$http.post(`${this.$filter('apiUrl')('laboratories', this.UserService.user.api_token)}`, laboratoryData);
   }
 
