@@ -22,19 +22,19 @@ lui-alert .lui-alert{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 14;
+    z-index: 34;
   }
 
   &__content{
     @extend .card;
     transform: scale(0);
     transition: .3s all ease;
-    z-index: 15;
+    z-index: 35;
   }
 
   &--active{
     background-color: transparentize(black, .4);
-    z-index: 10;
+    z-index: 30;
 
     .lui-alert__content{
       transform: scale(1);
