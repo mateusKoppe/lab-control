@@ -10,7 +10,7 @@ export const HomeComponent = {
     }
 
     onLogin(user){
-      this._state.go('dashboard');
+      this._state.go('laboratories');
     }
 
     handleLoginError(error){
