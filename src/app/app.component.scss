@@ -6,3 +6,46 @@ body{
   height: 100vh;
   margin: 0;
 }
+
+main{
+  min-height: calc(100vh - $footer-height);
+}
+
+.main-footer{
+  background-color: primary-color("600");
+  bottom: 0;
+  font-size: $footer-height / 2;
+  line-height: $footer-height;
+  height: $footer-height;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+
+  &__tabs{
+    display: flex;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+
+    &__item{
+      flex: 1;
+      text-align: center;
+    }
+
+    &__link{
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      display: block;
+      height: 100%;
+      transition: .3s all ease;
+      background-color: transition;
+
+      &--active{
+        background-color: transparentize(black, .5);
+      }
+    }
+  }
+}

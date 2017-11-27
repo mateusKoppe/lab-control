@@ -20,11 +20,12 @@
 lui-float-button .lui-float-button{
   @include lui-float-button-color(gray("600"));
   border-radius: 100%;
-  bottom: 25px;
+  bottom: 12px + $footer-height;
   height: 63px;
   position: fixed;
-  right: 25px;
+  right: 15px;
   width: 63px;
+  z-index: 20;
 
   .lui-float-button__button{
     @include dp-shadow(3);
