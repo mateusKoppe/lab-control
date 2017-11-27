@@ -1,4 +1,6 @@
-<div class="lui-alert" ng-class="$ctrl.class">
-  <div class="lui-alert__escape-area" ng-click="$ctrl.close()"></div>
-  <div class="lui-alert__content" ng-transclude></div>
+<div ng-if="$ctrl.printElement">  
+  <div class="lui-alert" ng-class="$ctrl.class">
+    <div class="lui-alert__escape-area" ng-click="$ctrl.close()"></div>
+    <div class="lui-alert__content" ng-transclude></div>
+  </div>
 </div>
