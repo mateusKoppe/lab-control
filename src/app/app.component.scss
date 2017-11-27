@@ -14,10 +14,12 @@ main{
 .main-footer{
   background-color: primary-color("600");
   bottom: 0;
+  box-sizing: border-box;
   font-size: $footer-height / 2;
-  line-height: $footer-height;
+  line-height: $footer-height - 10px;
   height: $footer-height;
   left: 0;
+  padding: 5px;
   position: fixed;
   width: 100%;
   z-index: 5;
