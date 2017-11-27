@@ -8,8 +8,14 @@ export const LaboratoryFormComponent = {
   transclude: false,
   templateUrl,
   controller: class LaboratoryFormController {
-    constructor(){
+    constructor(UserService){
       'ngInject';
+      this.UserService = UserService;
+    }
+
+    $onInit(){
+      this.UserService.getUsers()
+        .then(response => this.users = response.data);
     }
 
     handleSubmit(){

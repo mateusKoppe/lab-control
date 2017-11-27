@@ -7,6 +7,10 @@ export class UserService {
     this._user = false;
   }
 
+  getUsers(){
+    return this.$http.get(`${this.$filter('apiUrl')('users')}`);
+  }
+
   login(user){
     return this.$http.post(`${this.$filter('apiUrl')('login')}`, user)
       .then(response => response.data)

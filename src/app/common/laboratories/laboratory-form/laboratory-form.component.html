@@ -1,8 +1,8 @@
 <form ng-submit="$ctrl.handleSubmit()">
   <lui-input ng-model="$ctrl.data.name" theme="'primary'">Laboratory</lui-input>
   <lui-textarea ng-model="$ctrl.data.description" theme="'primary'">Description</lui-textarea>
-  <lui-select ng-model="$ctrl.data.accontable" theme="'primary'" placeholder="Accontable">
-    <option value="1">Bruce Wayne</option>
+  <lui-select ng-model="$ctrl.data.accountable" theme="'primary'" placeholder="Accontable">
+    <option ng-value="user.id" ng-repeat="user in $ctrl.users">{{user.name}}</option>
   </lui-select>
   <div class="group-buttons">
     <button class="button button--primary">Save</button>
