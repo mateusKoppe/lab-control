@@ -5,14 +5,14 @@ laboratories .laboratories{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 15px;
 
-  &__box__header{
+  &__header{
     @extend .card__header;
   }
 
-  &__box__info{
+  &__info{
     @extend .card;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
