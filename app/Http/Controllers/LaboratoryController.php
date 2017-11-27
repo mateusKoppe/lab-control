@@ -32,7 +32,7 @@ class LaboratoryController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:85',
             'description' => 'string',
-            'accountable' => 'exists:users,id',
+            'accountable' => 'required|exists:users,id',
         ]);
         if($validator->fails())
             return response($validator->errors(), 417);
