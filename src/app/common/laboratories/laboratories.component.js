@@ -9,5 +9,17 @@ export const LaboratoriesComponent = {
     constructor(){
       'ngInject';
     }
+
+    $onInit(){
+      this.addFormAlert = false;
+    }
+
+    addFormOpen(){
+      this.addFormAlert = true;
+    }
+
+    createLaboratory(laboratory){
+      console.log(laboratory);
+    }
   }
 };
