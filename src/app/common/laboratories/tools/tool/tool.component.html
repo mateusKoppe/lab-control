@@ -24,7 +24,7 @@
       <button ng-click="$ctrl.editTool()" class="button button--accent">Edit</button>
     </div>
     <lui-alert open="$ctrl.formToolAlertOpen">
-      <tool-form on-submit="$ctrl.formToolSubmit()" on-cancel="$ctrl.closeForm()"></tool-form>
+      <tool-form data="$ctrl.tool" on-submit="$ctrl.editFormSubmit(tool)" on-cancel="$ctrl.closeForm()"></tool-form>
     </lui-alert>
   </div>
 </div>

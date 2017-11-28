@@ -8,13 +8,13 @@ export const ToolComponent = {
   controller: class ToolController {
     constructor($state, ToolsService){
       'ngInject';
-      this._state = $state;
-      this._toolsService = ToolsService;
+      this.$state = $state;
+      this.ToolsService = ToolsService;
     }
 
     $onInit(){
       this.tool = {};
-      this._toolsService.getToolFromId(this._state.params.id)
+      this.ToolsService.getToolFromId(this.$state.params.id)
         .then(response => this.tool = response.data);
     }
 
@@ -23,17 +23,15 @@ export const ToolComponent = {
       this.formToolAlertOpen = true;
     }
 
-    formToolSubmit(){
-      this._toolsService.updateTool(this.tool.laboratory, this.formTool)
+    editFormSubmit(tool){
+      this.ToolsService.updateTool(this.tool.laboratory, tool)
         .then(response => {
           this.tool = response.data;
-          this.formTool = {};
           this.closeForm();
         })
     }
 
     closeForm(){
-      this.formTool = {};
       this.formToolAlertOpen = false;
     }
   }
