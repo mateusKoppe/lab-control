@@ -1,10 +1,16 @@
 <div class="login">
-  <h2>LabControl - Login</h2>
-  <form ng-submit="$ctrl.login()">
-    <lui-input theme="'primary'" type="text" ng-model="$ctrl.user.email">E-mail</lui-input>
-    <lui-input theme="'primary'" type="password" ng-model="$ctrl.user.password">Password</lui-input>
-    <div class="login__actions">
-      <button type="submit" class="button button--accent">Login</button>
-    </div>
-  </form>
+  <div class="login__card">
+    <h2>LabControl - Login</h2>
+    <form ng-submit="$ctrl.loginSubmit()">
+      <lui-input theme="'primary'" type="text" ng-model="$ctrl.user.email">E-mail</lui-input>
+      <lui-input theme="'primary'" type="password" ng-model="$ctrl.user.password">Password</lui-input>
+      <div class="login__card__actions">
+        <button type="submit" class="button button--accent">Login</button>
+      </div>
+    </form>
+  </div>
+  <!-- <login
+    on-login-success="$ctrl.onLogin(user)"
+    on-login-error="$ctrl.handleLoginError(error)"
+  ></login> -->
 </div>

@@ -1,11 +1,19 @@
 @import '~app/styles/utils';
 
 login .login{
-  @extend .card;
-  padding: 45px 20px;
-  width: 400px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 
-  &__actions{
-    text-align: right;
+  .login__card{
+    @extend .card;
+    padding: 45px 20px;
+    width: 400px;
+
+    &__actions{
+      text-align: right;
+    }
   }
 }

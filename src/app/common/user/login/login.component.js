@@ -9,15 +9,19 @@ export const LoginComponent = {
   transclude: false,
   templateUrl,
   controller: class LoginController {
-    constructor(UserService){
+    constructor($state, UserService){
       'ngInject';
+      this.$state = $state;
       this.UserService = UserService;
     }
 
-    login(){
+    loginSubmit(){
       this.UserService.login(this.user)
-        .then(data => this.onLoginSuccess({user: data}))
-        .catch(error => this.onLoginError({error}));
+        .then(data => this.$state.go('laboratories'))
+        .catch(error => {
+          alert('Fail to login');
+          console.error('fail to login', error);
+        });
     }
   }
 };

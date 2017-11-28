@@ -10,4 +10,12 @@ export const UserModule = angular
   ])
   .service('UserService', UserService)
   .constant('routeCheckLogin', RouteCheckLoginConstant)
+  .config($stateProvider => {
+    'ngInject';
+    $stateProvider
+      .state('login', {
+        url: '/login',
+        component: 'login',
+      });
+  })
   .name;
