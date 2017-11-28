@@ -18,6 +18,7 @@ export const AppModule = angular
     $urlRouterProvider.otherwise('/');
   })
   .config(ApiServiceProvider => {
+    'ngInject';
     ApiServiceProvider.url = 'http://localhost:8000/api';
   })
   .name;
