@@ -1,9 +1,9 @@
 export class LaboratoriesService {
   constructor($http, UserService, $filter){
+    'ngInject';
     this.$http = $http;
     this.$filter = $filter;
     this.UserService = UserService;
-    'ngInject';
   }
 
   saveLaboratory(laboratory){

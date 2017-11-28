@@ -7,13 +7,13 @@ export const LaboratoriesListComponent = {
   controller: class LaboratoriesListController {
     constructor($state, $scope, LaboratoriesService){
       'ngInject';
-      this.laboratories = false;
       this.$state = $state;
       this.$scope = $scope;
       this.LaboratoriesService = LaboratoriesService;
     }
 
     $onInit(){
+      this.laboratories = false;
       this._loadLaboratories();
       this.$scope.$on('addLaboratory', (event, laboratory) => {
         this.laboratories.push(laboratory);

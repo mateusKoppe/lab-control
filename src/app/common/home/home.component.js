@@ -6,11 +6,11 @@ export const HomeComponent = {
   controller: class HomeController{
     constructor($state){
       'ngInject';
-      this._state = $state;
+      this.$state = $state;
     }
 
     onLogin(user){
-      this._state.go('laboratories');
+      this.$state.go('laboratories');
     }
 
     handleLoginError(error){

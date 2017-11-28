@@ -9,13 +9,13 @@ export const ToolsListComponent = {
   controller: class ToolsListController {
     constructor($scope, $state, ToolsService){
       'ngInject';
-      this._toolsService = ToolsService;
-      this._scope = $scope;
-      this._state = $state;
+      this.$scope = $scope;
+      this.$state = $state;
+      this.ToolsService = ToolsService;
     }
 
     $onInit(){
-      this._scope.$on('addTool', (event, tool) => {
+      this.$scope.$on('addTool', (event, tool) => {
         console.log(tool);
         this.tools.push(tool);
       })
@@ -24,13 +24,13 @@ export const ToolsListComponent = {
     $onChanges(changes) {
       if(changes.laboratory.currentValue){
         this.laboratory = changes.laboratory.currentValue;
-        this._toolsService.getToolsByLaboratory(this.laboratory)
+        this.ToolsService.getToolsByLaboratory(this.laboratory)
           .then(tools => this.tools = tools.data);
       }
     };
 
     toolClick(tool){
-      this._state.go('tool', {id: tool.id});
+      this.$state.go('tool', {id: tool.id});
     }
   }
 };
