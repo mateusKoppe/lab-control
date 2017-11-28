@@ -1,0 +1,15 @@
+<div class="accountables">
+  <header class="accountables__header">
+    <h2 class="header__title">Accountables</h2>
+  </header>
+  <div class="accountables__info">
+    <accountables-list></accountables-list>
+  </div>
+  <lui-float-button ng-if="$ctrl.hasPermission" ng-click="$ctrl.addFormOpen()" theme="'accent'"><i class="fa fa-plus"></i></lui-float-button>
+  <lui-alert open="$ctrl.addFormAlert">
+    <accountable-form
+      on-submit="$ctrl.createAccountable(accountable)"
+      on-cancel="$ctrl.addFormClose()">
+    </accountable-form>
+  </lui-alert>
+</div>

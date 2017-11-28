@@ -9,14 +9,15 @@ export const LaboratoryFormComponent = {
   transclude: false,
   templateUrl,
   controller: class LaboratoryFormController {
-    constructor(UserService){
+    constructor(AccountablesService){
       'ngInject';
-      this.UserService = UserService;
+      this.AccountablesService = AccountablesService;
     }
 
     $onInit(){
-      this.UserService.getUsers()
-        .then(response => this.users = response.data);
+      this.accountables = false;
+      this.AccountablesService.getAccountables()
+        .then(response => this.accountables = response.data);
     }
 
     $onChange(changes){
