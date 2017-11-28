@@ -11,6 +11,10 @@ export class UserService {
     return this.$http.get(`${this.$filter('apiUrl')('users')}`);
   }
 
+  getToken(){
+    return this.user.token || localStorage.getItem('user');
+  }
+
   login(user){
     return this.$http.post(`${this.$filter('apiUrl')('login')}`, user)
       .then(response => response.data)

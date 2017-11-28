@@ -18,16 +18,9 @@
     <h2>Tools</h2>
     <tools-list laboratory="$ctrl.laboratory"></tools-list>
   </div>
-  <lui-float-button ng-click="$ctrl.addToolAlertOpen = true" theme="'primary'"><i class="fa fa-plus"></i></lui-float-button>
+  <lui-float-button ng-click="$ctrl.addToolAlertOpen = true" theme="'accent'"><i class="fa fa-plus"></i></lui-float-button>
   <lui-alert open="$ctrl.addToolAlertOpen">
-    <form ng-submit="$ctrl.addToolSubmit()">
-      <lui-input ng-model="$ctrl.newTool.name" theme="'primary'">Tool</lui-input>
-      <lui-input ng-model="$ctrl.newTool.place" theme="'primary'">Place</lui-input>
-      <div class="group-buttons">
-        <button class="button button--primary">Add</button>
-        <button type="reset" class="button" ng-click="$ctrl.addToolAlertOpen = false">Cancel</button>
-      </div>
-   </form>
+    <tool-form on-submit="$ctrl.addToolSubmit(tool)" on-cancel="$ctrl.addToolAlertOpen = false"></tool-form>
   </lui-alert>
   <lui-alert open="$ctrl.addToolAlertSuccess">
     <h2>The tool was successfully created</h2>

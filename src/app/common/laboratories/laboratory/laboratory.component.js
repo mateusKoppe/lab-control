@@ -8,30 +8,29 @@ export const LaboratoryComponent = {
   controller: class LaboratoryController {
     constructor($state, $scope, LaboratoriesService, ToolsService){
       'ngInject';
-      this._state = $state;
-      this._scope = $scope;
-      this._laboratoriesService = LaboratoriesService;
-      this._toolsService = ToolsService;
+      this.$state = $state;
+      this.$scope = $scope;
+      this.LaboratoriesService = LaboratoriesService;
+      this.ToolsService = ToolsService;
     }
 
     $onInit(){
       this.laboratory = false;
-      this._getLaboratory(this._state.params.id);
+      this._getLaboratory(this.$state.params.id);
     }
 
-    addToolSubmit(){
-      this._toolsService.saveTool(this.laboratory, this.newTool)
+    addToolSubmit(tool){
+      this.ToolsService.saveTool(this.laboratory, tool)
         .then(response => {
-          console.log(response.data);
           this.addToolAlertOpen = false;
-          this._scope.$broadcast('addTool', this.newTool);
+          this.$scope.$broadcast('addTool', tool);
           this.addToolAlertSuccess = true;
-          this.newTool = {};
+          this.addToolForm = {};
         });
     }
 
     _getLaboratory(id){
-      this._laboratoriesService.getLaboratory(id)
+      this.LaboratoriesService.getLaboratory(id)
         .then(laboratory => this.laboratory = laboratory.data);
     }
   }

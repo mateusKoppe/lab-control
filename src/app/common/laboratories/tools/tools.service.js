@@ -1,16 +1,15 @@
-
 export class ToolsService {
-  constructor($http, UserService, $filter){
+  constructor($http, $filter, UserService){
     'ngInject';
-    this._http = $http;
-    this._userService = UserService;
-    this._filter = $filter;
+    this.$http = $http;
+    this.$filter = $filter;
+    this.UserService = UserService;
   }
 
   saveTool(laboratory, tool){
     let dataTool = angular.copy(tool);
     dataTool.laboratory = laboratory.id;
-    return this._http.post(`${this._filter('apiUrl')(`tools/list/${laboratory.id}`, this._userService.user.api_token)}`, dataTool);
+    return this.$http.post(`${this.$filter('apiUrl')(`tools/list/${laboratory.id}`, this.UserService.getToken())}`, dataTool);
   }
 
   updateTool(laboratory, tool){
@@ -18,11 +17,11 @@ export class ToolsService {
     delete dataTool.laboratory;
     delete dataTool.created_at;
     delete dataTool.updated_at;
-    return this._http.put(`${this._filter('apiUrl')(`tools/item/${dataTool.id}`, this._userService.user.api_token)}`, dataTool);
+    return this.$http.put(`${this.$filter('apiUrl')(`tools/item/${dataTool.id}`, this.UserService.getToken())}`, dataTool);
   }
 
   getToolFromId(id){
-    return this._http.get(`${this._filter('apiUrl')(`tools/item/${id}`, this._userService.user.api_token)}`);
+    return this.$http.get(`${this.$filter('apiUrl')(`tools/item/${id}`)}`);
   }
 
   getToolsByLaboratory(laboratory){
@@ -30,6 +29,6 @@ export class ToolsService {
   }
 
   getToolsByLaboratoryId(id){
-    return this._http.get(`${this._filter('apiUrl')(`tools/list/${id}`, this._userService.user.api_token)}`);
+    return this.$http.get(`${this.$filter('apiUrl')(`tools/list/${id}`)}`);
   }
 }
