@@ -6,17 +6,20 @@ export const LaboratoryComponent = {
   transclude: false,
   templateUrl,
   controller: class LaboratoryController {
-    constructor($state, $scope, LaboratoriesService, ToolsService){
+    constructor($state, $scope, LaboratoriesService, ToolsService, UserService){
       'ngInject';
       this.$state = $state;
       this.$scope = $scope;
       this.LaboratoriesService = LaboratoriesService;
       this.ToolsService = ToolsService;
+      this.UserService = UserService;
     }
 
     $onInit(){
       this.laboratory = false;
+      this.hasPermission = false;
       this._getLaboratory(this.$state.params.id);
+      this._loadUser();
     }
 
     addToolSubmit(tool){
@@ -26,6 +29,15 @@ export const LaboratoryComponent = {
           this.$scope.$broadcast('addTool', tool);
           this.addToolAlertSuccess = true;
           this.addToolForm = {};
+        });
+    }
+
+    _loadUser(){
+      this.UserService.getLoggedUser()
+        .then(user => {
+          this.user = user;
+          this.hasPermission = this.laboratory.accountable == this.user.id || this.user.permission <= 2;
+          console.log(this.hasPermission);
         });
     }
 

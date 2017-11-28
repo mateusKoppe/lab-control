@@ -18,7 +18,7 @@
     <h2>Tools</h2>
     <tools-list laboratory="$ctrl.laboratory"></tools-list>
   </div>
-  <lui-float-button ng-click="$ctrl.addToolAlertOpen = true" theme="'accent'"><i class="fa fa-plus"></i></lui-float-button>
+  <lui-float-button ng-if="$ctrl.hasPermission" ng-click="$ctrl.addToolAlertOpen = true" theme="'accent'"><i class="fa fa-plus"></i></lui-float-button>
   <lui-alert open="$ctrl.addToolAlertOpen">
     <tool-form on-submit="$ctrl.addToolSubmit(tool)" on-cancel="$ctrl.addToolAlertOpen = false"></tool-form>
   </lui-alert>

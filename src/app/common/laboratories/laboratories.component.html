@@ -5,7 +5,7 @@
   <div class="laboratories__info">
     <laboratories-list></laboratories-list>
   </div>
-  <lui-float-button ng-click="$ctrl.addFormOpen()" theme="'accent'"><i class="fa fa-plus"></i></lui-float-button>
+  <lui-float-button ng-if="$ctrl.hasPermission" ng-click="$ctrl.addFormOpen()" theme="'accent'"><i class="fa fa-plus"></i></lui-float-button>
   <lui-alert open="$ctrl.addFormAlert">
     <laboratory-form
       on-submit="$ctrl.createLaboratory(laboratory)"

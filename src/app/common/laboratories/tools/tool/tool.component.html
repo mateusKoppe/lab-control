@@ -20,7 +20,7 @@
         <td><a ui-sref="laboratory({id: $ctrl.tool.laboratory.id})">{{$ctrl.tool.laboratory.name}}</a></td>
       </tr>
     </table>
-    <div class="group-buttons">
+    <div ng-if="$ctrl.hasPermission" class="group-buttons">
       <button ng-click="$ctrl.editTool()" class="button button--accent">Edit</button>
     </div>
     <lui-alert open="$ctrl.formToolAlertOpen">

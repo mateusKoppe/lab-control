@@ -16,12 +16,16 @@ export const LaboratoriesComponent = {
     $onInit(){
       this.addFormAlert = false;
       this.user = false;
+      this.hasPermission = false;
       this._loadUser();
     }
 
     _loadUser(){
       this.UserService.getLoggedUser()
-        .then(user => this.user = user)
+        .then(user => {
+          this.user = user;
+          this.hasPermission = this.user.permission <= 2;
+        });
     }
 
     addFormOpen(){
