@@ -4,6 +4,7 @@ export const LaboratoryFormComponent = {
   bindings: {
     onCancel: '&',
     onSubmit: '&',
+    data: '<',
   },
   transclude: false,
   templateUrl,
@@ -16,6 +17,12 @@ export const LaboratoryFormComponent = {
     $onInit(){
       this.UserService.getUsers()
         .then(response => this.users = response.data);
+    }
+
+    $onChange(changes){
+      if(changes.data.currentValue){
+        this.data = changes.data.currentValue;
+      }
     }
 
     handleSubmit(){

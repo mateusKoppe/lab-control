@@ -4,7 +4,7 @@ export const ToolFormComponent = {
   bindings: {
     onCancel: '&',
     onSubmit: '&',
-    data: '<'
+    data: '<',
   },
   transclude: false,
   templateUrl,
