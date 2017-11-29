@@ -1,20 +1,16 @@
 @import '~app/styles/utils';
 
 accountables .accountables{
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: calc(100vh - #{$footer-height});
-  padding: 15px;
-  padding-bottom: $footer-height + 15px;
+  @extend .page;
 
   &__header{
     @extend .card__header;
+    @extend .card__header--container;
   }
 
   &__info{
     @extend .card;
+    @extend .card--container;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }

@@ -5,10 +5,12 @@ laboratories .laboratories{
 
   &__header{
     @extend .card__header;
+    @extend .card__header--container;
   }
 
   &__info{
     @extend .card;
+    @extend .card--container;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }

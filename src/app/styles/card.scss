@@ -8,6 +8,11 @@
   width: 100%;
 }
 
+.card--container{
+  padding: 45px 20px;
+  width: 400px;
+}
+
 .card__header{
   @extend .card;
   display: flex;
@@ -31,4 +36,8 @@
     margin: 0;
     font-size: 26px;
   }
+}
+
+.card__header--container{
+  width: 400px;
 }

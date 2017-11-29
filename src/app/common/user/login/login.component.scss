@@ -5,8 +5,7 @@ login .login{
 
   .login__card{
     @extend .card;
-    padding: 45px 20px;
-    width: 400px;
+    @extend .card--container;
 
     &__actions{
       text-align: right;
