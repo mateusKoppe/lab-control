@@ -48,4 +48,13 @@ class AccountableController extends Controller
       $accountable->update($body);
       return $accountable;
     }
+
+    public function destroy(Request $request, User $accountable){
+      $user = $request->user();
+      if(!$user->hasPermissionLevel(1)){
+        return response(['message' => 'Permission denied'], 403);
+      }
+      $accountable->delete();
+      return response(null, 200);
+    }
 }
