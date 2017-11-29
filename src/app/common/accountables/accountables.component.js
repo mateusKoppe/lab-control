@@ -17,10 +17,6 @@ export const AccountablesComponent = {
       this.accountables = false;
       this.user = false;
       this._loadUser();
-      this.AccountablesService.getAccountables()
-        .then(response => {
-          this.accountables = response.data;
-        });
     }
 
     _loadUser(){
