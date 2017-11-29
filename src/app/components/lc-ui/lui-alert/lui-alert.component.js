@@ -43,7 +43,7 @@ export const LuiAlertComponent = {
     openAlert(){
       this.printElement = true;
       this.showing = true;
-      this.$timeout(() => this._refreshClass(), 10);
+      this.$timeout(() => this._refreshClass(), 30);
       this._listenEscKey();
     }
 
