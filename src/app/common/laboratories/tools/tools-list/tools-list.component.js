@@ -16,16 +16,17 @@ export const ToolsListComponent = {
 
     $onInit(){
       this.$scope.$on('addTool', (event, tool) => {
-        console.log(tool);
         this.tools.push(tool);
       })
     }
 
     $onChanges(changes) {
       if(changes.laboratory.currentValue){
-        this.laboratory = changes.laboratory.currentValue;
-        this.ToolsService.getToolsByLaboratory(this.laboratory)
+        if(this.laboratory.id != changes.laboratory.currentValue.id){
+          this.ToolsService.getToolsByLaboratory(this.laboratory)
           .then(tools => this.tools = tools.data);
+        }
+        this.laboratory = changes.laboratory.currentValue;
       }
     };
 

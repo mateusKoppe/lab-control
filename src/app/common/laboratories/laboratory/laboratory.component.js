@@ -32,12 +32,24 @@ export const LaboratoryComponent = {
         });
     }
 
+    editLaboratory(){
+      this.editForm = this.laboratory;
+      this.editLaboratoryAlertOpen = true;
+    }
+
+    editLaboratorySubmit(laboratory){
+      this.LaboratoriesService.editLaboratory(laboratory)
+        .then(response => {
+          this.editLaboratoryAlertOpen = false;
+          this.laboratory = response.data;
+        });
+    }
+
     _loadUser(){
       this.UserService.getLoggedUser()
         .then(user => {
           this.user = user;
           this.hasPermission = this.laboratory.accountable == this.user.id || this.user.permission <= 2;
-          console.log(this.hasPermission);
         });
     }
 

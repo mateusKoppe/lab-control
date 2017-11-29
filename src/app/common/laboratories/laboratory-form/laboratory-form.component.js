@@ -16,18 +16,19 @@ export const LaboratoryFormComponent = {
 
     $onInit(){
       this.accountables = false;
+      this.form = angular.copy(this.data);
       this.AccountablesService.getAccountables()
         .then(response => this.accountables = response.data);
     }
 
     $onChange(changes){
       if(changes.data.currentValue){
-        this.data = changes.data.currentValue;
+        this.form = angular.copy(changes.data.currentValue);
       }
     }
 
     handleSubmit(){
-      this.onSubmit({laboratory: this.data});
+      this.onSubmit({laboratory: this.form});
     }
   }
 };

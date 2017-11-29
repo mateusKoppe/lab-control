@@ -15,6 +15,17 @@
         <td>{{$ctrl.laboratory.accountable.name}}</td>
       </tr>
     </table>
+    <div class="group-buttons">
+      <button type="button" ng-click="$ctrl.editLaboratory()" class="button button--accent">Edit</button>
+      <button type="button" class="button button--danger">Delete</button>
+    </div>
+    <lui-alert open="$ctrl.editLaboratoryAlertOpen">
+      <laboratory-form
+        data="$ctrl.editForm"
+        on-submit="$ctrl.editLaboratorySubmit(laboratory)"
+        on-cancel="$ctrl.editLaboratoryAlertOpen = false">
+      </laboratory-form>
+    </lui-alert>
     <h2>Tools</h2>
     <tools-list laboratory="$ctrl.laboratory"></tools-list>
   </div>

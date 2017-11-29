@@ -7,8 +7,21 @@ export class LaboratoriesService {
   }
 
   saveLaboratory(laboratory){
-    const laboratoryData = angular.copy(laboratory);
+    let laboratoryData = angular.copy(laboratory);
+    laboratoryData.accountable = laboratoryData.accountable.id;
     return this.$http.post(`${this.$filter('apiUrl')('laboratories', this.UserService.getToken())}`, laboratoryData);
+  }
+
+  editLaboratory(laboratory){
+    let laboratoryData = angular.copy(laboratory);
+    laboratoryData.accountable = laboratoryData.accountable.id;
+    delete laboratoryData.created_at;
+    delete laboratoryData.updated_at;
+    !laboratoryData.description && delete laboratoryData.description;
+    return this.$http.put(
+      `${this.$filter('apiUrl')(`laboratories/${laboratoryData.id}`, this.UserService.getToken())}`,
+      laboratoryData
+    );
   }
 
   getLaboratories(){
