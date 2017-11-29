@@ -27,6 +27,11 @@ lui-float-button .lui-float-button{
   width: 63px;
   z-index: 20;
 
+  @media (min-width: 1050px){
+    bottom: 50px;
+    right: calc(50% - 332px);
+  }
+
   .lui-float-button__button{
     @include dp-shadow(3);
     color: white;

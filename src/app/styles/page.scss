@@ -7,4 +7,9 @@
   min-height: calc(100vh - #{$footer-height});
   padding: 15px;
   padding-bottom: $footer-height + 15px;
+
+  @media (min-width: 1050px){
+    padding-bottom: 15px;
+    padding-top: $footer-height + 15px;
+  }
 }

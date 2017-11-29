@@ -11,6 +11,57 @@ main{
   min-height: calc(100vh - $footer-height);
 }
 
+.main-header{
+  background-color: primary-color("600");
+  top: 0;
+  box-sizing: border-box;
+  display: none;
+  font-size: 1.3rem;
+  line-height: $footer-height;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  padding-left: 30px;
+
+  @media (min-width: 1050px){
+    display: block;
+  }
+
+  &__tabs{
+    display: flex;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    height: $footer-height;
+    align-items: center;
+
+    &__item{
+      text-align: center;
+      line-height: $footer-height - 10px;
+      margin-right: 5px;
+    }
+
+    &__link{
+      background-color: transition;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      display: block;
+      height: 100%;
+      transition: .3s all ease;
+      padding: 0 15px;
+      text-decoration: none;
+      outline: none;
+
+      &--active{
+        background-color: transparentize(black, .5);
+      }
+    }
+  }
+}
+
 .main-footer{
   background-color: primary-color("600");
   bottom: 0;
@@ -23,6 +74,10 @@ main{
   position: fixed;
   width: 100%;
   z-index: 5;
+
+  @media (min-width: 1050px){
+    display: none;
+  }
 
   &__tabs{
     display: flex;
@@ -44,6 +99,7 @@ main{
       height: 100%;
       transition: .3s all ease;
       background-color: transition;
+      outline: none;
 
       &--active{
         background-color: transparentize(black, .5);
