@@ -30,9 +30,10 @@ class ToolsCascadeEventes extends Migration
     public function down()
     {
         Schema::table('tools', function (Blueprint $table) {
+          $table->dropForeign(['laboratory']);
           $table->foreign('laboratory')
-          ->references('id')
-          ->on('laboratories');
+            ->references('id')
+            ->on('laboratories');
         });
     }
 }
