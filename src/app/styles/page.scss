@@ -1,0 +1,10 @@
+.page{
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - #{$footer-height});
+  padding: 15px;
+  padding-bottom: $footer-height + 15px;
+}
