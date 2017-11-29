@@ -16,9 +16,13 @@ export const AccountableFormComponent = {
       'ngInject';
     }
 
+    $onInit(){
+      this.form = angular.copy(this.data);
+    }
+
     $onChange(changes){
       if(changes.data.currentValue){
-        this.data = changes.data.currentValue;
+        this.data = angular.copy(changes.form.currentValue);
       }
       if(changes.hide.currentValue){
         this.hide = changes.hide.currentValue;
@@ -29,7 +33,7 @@ export const AccountableFormComponent = {
     }
 
     handleSubmit(){
-      this.onSubmit({accountable: this.data});
+      this.onSubmit({accountable: this.form});
     }
   }
 };

@@ -14,8 +14,13 @@
         <i class="fa fa-users"></i>
       </a>
     </li>
-    <li class="main-footer__tabs__item">
+    <li class="main-footer__tabs__item" ng-if="!$ctrl.user">
       <a class="main-footer__tabs__link" ui-sref-active="main-footer__tabs__link--active" ui-sref="login">
+        <i class="fa fa-user"></i>
+      </a>
+    </li>
+    <li class="main-footer__tabs__item" ng-if="$ctrl.user">
+      <a class="main-footer__tabs__link" ui-sref-active="main-footer__tabs__link--active" ui-sref="account">
         <i class="fa fa-user"></i>
       </a>
     </li>
