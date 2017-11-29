@@ -11,6 +11,16 @@
 .card--container{
   padding: 45px 20px;
   width: 400px;
+
+  @media (min-width: 1150px){
+    width: 600px;
+  }
+}
+
+.card--with-header{
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: 15px;
 }
 
 .card__header{
@@ -40,4 +50,8 @@
 
 .card__header--container{
   width: 400px;
+
+  @media (min-width: 1150px){
+    width: 600px;
+  }
 }

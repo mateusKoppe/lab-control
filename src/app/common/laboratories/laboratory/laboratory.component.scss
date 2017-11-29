@@ -11,7 +11,6 @@ laboratory .laboratory{
   &__info{
     @extend .card;
     @extend .card--container;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    @extend .card--with-header;
   }
 }
