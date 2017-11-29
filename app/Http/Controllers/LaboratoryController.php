@@ -38,6 +38,7 @@ class LaboratoryController extends Controller
             return response($validator->errors(), 417);
         $laboratory = Laboratory::create($request->all());
         $laboratory->accountable = User::find($laboratory->accountable);
+        unset($laboratory->accountable->api_token);
         return $laboratory;
     }
 
@@ -50,6 +51,7 @@ class LaboratoryController extends Controller
     public function show(Request $request, Laboratory $laboratory)
     {
         $laboratory->accountable = User::find($laboratory->accountable);
+        unset($laboratory->accountable->api_token);
         return $laboratory;
     }
 
@@ -74,7 +76,8 @@ class LaboratoryController extends Controller
             return response(['message' => 'Permission denied'], 403);
         }
         $laboratory->update($request->all());
-        $laboratory->accountable = $user;
+        $laboratory->accountable = User::find($laboratory->accountable);
+        unset($laboratory->accountable->api_token);
         return $laboratory;
     }
 
