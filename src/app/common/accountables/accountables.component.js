@@ -68,7 +68,7 @@ export const AccountablesComponent = {
     deleteAccountable(){
       this.AccountablesService.deleteAccountable(this.actualAccountable)
         .then(response => {
-          accountable = {};
+          this.$scope.$broadcast('deleteAccountable', this.actualAccountable);
           this.formClose();
         })
     }

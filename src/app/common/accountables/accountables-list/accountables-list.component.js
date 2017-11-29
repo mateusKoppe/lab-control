@@ -20,6 +20,9 @@ export const AccountablesListComponent = {
       this.$scope.$on('addAccountable', (event, accountable) => {
         this.accountables.push(accountable);
       });
+      this.$scope.$on('deleteAccountable', (event, removedAccountable) => {
+        this.accountables = this.accountables.filter(accountable => accountable.id != removedAccountable.id)
+      });
     }
 
     accountableClick(accountable){
