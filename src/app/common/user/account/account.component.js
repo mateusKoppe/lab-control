@@ -6,8 +6,9 @@ export const AccountComponent = {
   transclude: false,
   templateUrl,
   controller: class AccountController {
-    constructor(UserService, AccountablesService){
+    constructor($state, UserService, AccountablesService){
       'ngInject';
+      this.$state = $state;
       this.UserService = UserService;
       this.AccountablesService = AccountablesService;
     }
@@ -33,6 +34,11 @@ export const AccountComponent = {
     close(){
       this.formOpen = false;
       this.formPasswordOpen = false;
+    }
+
+    logout(){
+      this.UserService.logout();
+      this.$state.go('login');
     }
 
     editFormSubmit(account){

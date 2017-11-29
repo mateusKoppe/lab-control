@@ -21,6 +21,11 @@ export class UserService {
       .then(user => this.user = user);
   }
 
+  logout(){
+    this.user = false;
+    localStorage.removeItem('user');
+  }
+
   getUser(token){
     return this.$http.get(`${this.$filter('apiUrl')('user', token)}`)
       .then(response => response.data)
