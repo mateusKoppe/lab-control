@@ -1,7 +1,9 @@
 import templateUrl from './accountables-list.component.html';
 
 export const AccountablesListComponent = {
-  bindings: {},
+  bindings: {
+    onClick: '&',
+  },
   transclude: false,
   templateUrl,
   controller: class AccountablesListController {
@@ -20,8 +22,8 @@ export const AccountablesListComponent = {
       });
     }
 
-    accontableClick(accontable){
-      this.$state.go('accontable', {id: accontable.id});
+    accountableClick(accountable){
+      this.onClick({accountable});
     }
 
     _loadAccountables(){

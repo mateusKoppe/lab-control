@@ -5,6 +5,7 @@ export const AccountableFormComponent = {
     onCancel: '&',
     onSubmit: '&',
     data: '<',
+    hide: '<',
   },
   transclude: false,
   templateUrl,
@@ -16,6 +17,9 @@ export const AccountableFormComponent = {
     $onChange(changes){
       if(changes.data.currentValue){
         this.data = changes.data.currentValue;
+      }
+      if(changes.hide.currentValue){
+        this.hide = changes.hide.currentValue;
       }
     }
 

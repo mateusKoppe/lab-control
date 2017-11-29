@@ -1,12 +1,12 @@
 <form ng-submit="$ctrl.handleSubmit()">
-  <lui-input ng-model="$ctrl.data.name" theme="'primary'">Accountable</lui-input>
-  <lui-input ng-model="$ctrl.data.email" theme="'primary'">Email</lui-input>
-  <lui-select ng-model="$ctrl.data.permission" theme="'primary'" placeholder="Permission">
+  <lui-input ng-if="!$ctrl.hide.name" ng-model="$ctrl.data.name" theme="'primary'">Accountable</lui-input>
+  <lui-input ng-if="!$ctrl.hide.email" ng-model="$ctrl.data.email" theme="'primary'">Email</lui-input>
+  <lui-select ng-if="!$ctrl.hide.permission" ng-model="$ctrl.data.permission" theme="'primary'" placeholder="Permission">
     <option ng-value="3">Accountable</option>
     <option ng-value="2">Admin</option>
   </lui-select>
-  <lui-input type="password" ng-model="$ctrl.data.password" theme="'primary'">Password</lui-input>
-  <lui-input type="password" ng-model="$ctrl.data.repeatPassword" theme="'primary'">Repeat password</lui-input>
+  <lui-input type="password" ng-if="!$ctrl.hide.password" ng-model="$ctrl.data.password" theme="'primary'">Password</lui-input>
+  <lui-input type="password" ng-if="!$ctrl.hide.repeatPassword" ng-model="$ctrl.data.repeatPassword" theme="'primary'">Repeat password</lui-input>
   <div class="group-buttons">
     <button class="button button--primary">Save</button>
     <button type="button" class="button" ng-click="$ctrl.onCancel()">Cancel</button>

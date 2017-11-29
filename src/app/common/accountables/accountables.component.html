@@ -3,13 +3,20 @@
     <h2 class="header__title">Accountables</h2>
   </header>
   <div class="accountables__info">
-    <accountables-list></accountables-list>
+    <accountables-list on-click="$ctrl.handleAccountableClick(accountable)"></accountables-list>
   </div>
-  <lui-float-button ng-if="$ctrl.hasPermission" ng-click="$ctrl.addFormOpen()" theme="'accent'"><i class="fa fa-plus"></i></lui-float-button>
-  <lui-alert open="$ctrl.addFormAlert">
+  <lui-float-button ng-if="$ctrl.hasPermission" ng-click="$ctrl.addFormOpen()" theme="'accent'">
+    <i class="fa fa-plus"></i>
+  </lui-float-button>
+  <lui-alert open="$ctrl.editFormAlert">
     <accountable-form
-      on-submit="$ctrl.createAccountable(accountable)"
-      on-cancel="$ctrl.addFormClose()">
+      data="$ctrl.editFormData"
+      on-submit="$ctrl.editFormSubmit(accountable)"
+      on-cancel="$ctrl.editFormClose()"
+      hide="{
+        password: true,
+        repeatPassword: true
+      }">
     </accountable-form>
   </lui-alert>
 </div>

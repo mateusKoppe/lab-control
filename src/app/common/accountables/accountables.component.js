@@ -31,19 +31,24 @@ export const AccountablesComponent = {
         });
     }
 
-    addFormOpen(){
-      this.addFormAlert = true;
+    editFormOpen(){
+      this.editFormAlert = true;
     }
 
-    addFormClose(){
-      this.addFormAlert = false;
+    editFormClose(){
+      this.editFormAlert = false;
     }
 
-    createAccountable(accountable){
-      this.AccountablesService.saveAccountable(accountable)
+    handleAccountableClick(accountable){
+      this.editFormData = accountable;
+      this.editFormOpen();
+    }
+
+    editFormSubmit(accountable){
+      this.AccountablesService.editAccountable(accountable)
         .then(response => {
-          this.addFormClose();
-          this.$scope.$broadcast('addAccountable', response.data);
+          this.editFormClose();
+          this.$scope.$broadcast('editAccountable', response.data);
         })
     }
   }
