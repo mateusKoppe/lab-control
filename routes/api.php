@@ -24,6 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('accountables')->group(function() {
   Route::get('', 'AccountableController@index');
   Route::post('', 'AccountableController@store')->middleware('auth:api');
+  Route::put('{accountable}', 'AccountableController@update')->middleware('auth:api');
 });
 
 
