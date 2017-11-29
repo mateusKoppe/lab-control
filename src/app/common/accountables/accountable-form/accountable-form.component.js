@@ -4,6 +4,8 @@ export const AccountableFormComponent = {
   bindings: {
     onCancel: '&',
     onSubmit: '&',
+    onDelete: '&',
+    hasDelete: '<',
     data: '<',
     hide: '<',
   },
@@ -20,6 +22,9 @@ export const AccountableFormComponent = {
       }
       if(changes.hide.currentValue){
         this.hide = changes.hide.currentValue;
+      }
+      if(changes.hasDelete.currentValue){
+        this.hasDelete = changes.hasDelete.currentValue;
       }
     }
 

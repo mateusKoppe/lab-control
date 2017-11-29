@@ -12,3 +12,6 @@
     <button type="button" class="button" ng-click="$ctrl.onCancel()">Cancel</button>
   </div>
 </form>
+<div ng-if="$ctrl.hasDelete" class="group-buttons">
+  <button ng-click="$ctrl.onDelete()" class="button button--danger">Delete</button>
+</div>

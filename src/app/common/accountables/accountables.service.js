@@ -1,3 +1,4 @@
+
 export class AccountablesService {
   constructor($http, $filter, UserService){
     'ngInject';
@@ -18,6 +19,10 @@ export class AccountablesService {
       `${this.$filter('apiUrl')(`accountables/${accountable.id}`, this.UserService.getToken())}`,
       accountableData
     );
+  }
+
+  deleteAccountable(accountable){
+    return this.$http.delete(`${this.$filter('apiUrl')(`accountables/${accountable.id}`, this.UserService.getToken())}`);
   }
 
   getAccountables(){

@@ -10,13 +10,21 @@
   </lui-float-button>
   <lui-alert open="$ctrl.editFormAlert">
     <accountable-form
-      data="$ctrl.editFormData"
+      data="$ctrl.actualAccountable"
       on-submit="$ctrl.editFormSubmit(accountable)"
-      on-cancel="$ctrl.editFormClose()"
+      on-cancel="$ctrl.formClose()"
+      on-delete="$ctrl.deleteAccountable()"
+      has-delete="true"
       hide="{
         password: true,
         repeatPassword: true
       }">
+    </accountable-form>
+  </lui-alert>
+  <lui-alert open="$ctrl.addFormAlert">
+    <accountable-form
+      on-submit="$ctrl.addFormSubmit(accountable)"
+      on-cancel="$ctrl.formClose()"
     </accountable-form>
   </lui-alert>
 </div>
