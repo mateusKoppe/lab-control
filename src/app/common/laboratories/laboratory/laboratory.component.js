@@ -45,6 +45,13 @@ export const LaboratoryComponent = {
         });
     }
 
+    deleteLaboratory(){
+      this.LaboratoriesService.deleteLaboratory(this.laboratory)
+        .then(response => {
+          this.$state.go('laboratories');
+        });
+    }
+
     _loadUser(){
       this.UserService.getLoggedUser()
         .then(user => {

@@ -24,6 +24,10 @@ export class LaboratoriesService {
     );
   }
 
+  deleteLaboratory(laboratory){
+    return this.$http.delete(`${this.$filter('apiUrl')(`laboratories/${laboratory.id}`, this.UserService.getToken())}`);
+  }
+
   getLaboratories(){
     return this.$http.get(`${this.$filter('apiUrl')('laboratories')}`);
   }

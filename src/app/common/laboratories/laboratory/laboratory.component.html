@@ -15,9 +15,9 @@
         <td>{{$ctrl.laboratory.accountable.name}}</td>
       </tr>
     </table>
-    <div class="group-buttons">
+    <div class="group-buttons" ng-if="$ctrl.hasPermission">
       <button type="button" ng-click="$ctrl.editLaboratory()" class="button button--accent">Edit</button>
-      <button type="button" class="button button--danger">Delete</button>
+      <button type="button" ng-click="$ctrl.deleteLaboratory()" class="button button--danger">Delete</button>
     </div>
     <lui-alert open="$ctrl.editLaboratoryAlertOpen">
       <laboratory-form
