@@ -17,14 +17,17 @@ export const ToolComponent = {
       this.tool = {};
       this.hasPermission = false;
       this.ToolsService.getToolFromId(this.$state.params.id)
-        .then(response => this.tool = response.data);
+        .then(response => {
+          this.tool = response.data;
+          this._loadUser();
+        });
     }
 
     _loadUser(){
       this.UserService.getLoggedUser()
         .then(user => {
           this.user = user;
-          this.hasPermission = this.laboratory.accountable == this.user.id || this.user.permission <= 2;
+          this.hasPermission = this.tool.laboratory.accountable == this.user.id || this.user.permission <= 2;
         });
     }
 

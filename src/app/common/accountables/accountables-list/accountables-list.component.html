@@ -1,5 +1,9 @@
 <div class="accountables-list">
   <lui-list>
-    <li ng-click="$ctrl.accountableClick(accountable)" ng-repeat="accountable in $ctrl.accountables">{{accountable.name}}</li>
+    <li
+      ng-click="$ctrl.accountableClick(accountable)"
+      ng-repeat="accountable in $ctrl.accountables track by accountable.id">
+      {{accountable.name}}
+    </li>
   </lui-list>
 </div>

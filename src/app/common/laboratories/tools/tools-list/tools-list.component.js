@@ -22,11 +22,9 @@ export const ToolsListComponent = {
 
     $onChanges(changes) {
       if(changes.laboratory.currentValue){
-        if(this.laboratory.id != changes.laboratory.currentValue.id){
-          this.ToolsService.getToolsByLaboratory(this.laboratory)
-          .then(tools => this.tools = tools.data);
-        }
         this.laboratory = changes.laboratory.currentValue;
+        this.ToolsService.getToolsByLaboratory(this.laboratory)
+          .then(tools => this.tools = tools.data);
       }
     };
 
