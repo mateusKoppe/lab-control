@@ -1,6 +1,7 @@
 export class UserService {
-  constructor($http, $filter, $state, $q){
+  constructor($rootScope, $http, $filter, $state, $q){
     'ngInject';
+    this.$rootScope = $rootScope;
     this.$http = $http;
     this.$filter = $filter;
     this.$q = $q;
@@ -62,6 +63,7 @@ export class UserService {
   }
 
   set user(user){
+    this.$rootScope.$broadcast('changeUser', user);
     localStorage.setItem('user', user.api_token);
     this._user = user;
   }
