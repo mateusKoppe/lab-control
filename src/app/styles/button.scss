@@ -29,13 +29,12 @@
   }
 }
 
-.button--primary{
-  @include button-color(primary-color());
-}
-
-.button--accent{
-  @include button-color(accent-color());
-}
+.button--primary{ @include button-color(primary-color()); }
+.button--accent{ @include button-color(accent-color()); }
+.button--danger{ @include button-color(status-color("danger")); }
+.button--success{ @include button-color(status-color("success")); }
+.button--warning{ @include button-color(status-color("warning")); }
+.button--info{ @include button-color(status-color("info")); }
 
 .group-buttons{
   display: flex;

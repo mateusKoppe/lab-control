@@ -10,6 +10,10 @@
   @return map-get($grays, $level);
 }
 
+@function status-color($status){
+  @return map-get($status-colors, $status);
+}
+
 $primary-colors: (
   '50': #E8EAF6,
   '100': #C5CAE9,
@@ -55,4 +59,11 @@ $grays: (
   '700': #616161,
   '800': #424242,
   '900': #212121
+);
+
+$status-colors: (
+  'danger': #dc3545,
+  'success': #28a745,
+  'warning': #ffc107,
+  'info': #17a2b8
 );
