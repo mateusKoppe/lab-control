@@ -22,6 +22,7 @@
     </table>
     <div ng-if="$ctrl.hasPermission" class="group-buttons">
       <button ng-click="$ctrl.editTool()" class="button button--accent">Edit</button>
+      <button ng-click="$ctrl.deleteTool()" class="button button--danger">Delete</button>
     </div>
     <lui-alert open="$ctrl.formToolAlertOpen">
       <tool-form data="$ctrl.tool" on-submit="$ctrl.editFormSubmit(tool)" on-cancel="$ctrl.closeForm()"></tool-form>

@@ -36,6 +36,13 @@ export const ToolComponent = {
       this.formToolAlertOpen = true;
     }
 
+    deleteTool(){
+      this.ToolsService.deleteTool(this.tool)
+        .then(response => {
+          this.$state.go('laboratory', {id: this.tool.laboratory.id})
+        })
+    }
+
     editFormSubmit(tool){
       this.ToolsService.updateTool(this.tool.laboratory, tool)
         .then(response => {

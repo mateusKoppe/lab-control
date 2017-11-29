@@ -20,6 +20,10 @@ export class ToolsService {
     return this.$http.put(`${this.$filter('apiUrl')(`tools/item/${dataTool.id}`, this.UserService.getToken())}`, dataTool);
   }
 
+  deleteTool(tool){
+    return this.$http.delete(`${this.$filter('apiUrl')(`tools/item/${tool.id}`, this.UserService.getToken())}`);
+  }
+
   getToolFromId(id){
     return this.$http.get(`${this.$filter('apiUrl')(`tools/item/${id}`)}`);
   }
