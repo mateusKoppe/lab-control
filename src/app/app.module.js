@@ -15,7 +15,7 @@ export const AppModule = angular
   .config(($locationProvider, $urlRouterProvider) => {
     'ngInject';
     $locationProvider.html5Mode(false);
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/laboratories');
   })
   .config(ApiServiceProvider => {
     'ngInject';
