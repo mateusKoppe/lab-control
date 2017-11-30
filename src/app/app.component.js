@@ -16,7 +16,6 @@ export const AppComponent = {
         })
 
       this.$scope.$on('changeUser', (event, user) => {
-        console.log(user);
         this.user = user;
       });
     }
