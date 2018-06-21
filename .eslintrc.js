@@ -4,6 +4,9 @@ module.exports = {
         "es6": true
     },
     "extends": "eslint:recommended",
+    "globals": {
+      "angular": true
+    },
     "parserOptions": {
         "sourceType": "module"
     },
