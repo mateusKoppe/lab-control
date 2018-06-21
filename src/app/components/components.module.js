@@ -1,11 +1,13 @@
 import angular from 'angular';
 
-import { LcUiModule } from './lc-ui/lc-ui.module';
-import { ApiModule } from './api/api.module';
+import { AccountablesModule } from './accountables/accountables.module';
+import { UserModule } from './user/user.module';
+import { LaboratoriesModule } from './laboratories/laboratories.module';
 
 export const ComponentsModule = angular
   .module('components', [
-    LcUiModule,
-    ApiModule,
+    AccountablesModule,
+    UserModule,
+    LaboratoriesModule,
   ])
   .name;

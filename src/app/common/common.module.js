@@ -1,13 +1,11 @@
 import angular from 'angular';
 
-import { AccountablesModule } from './accountables/accountables.module';
-import { UserModule } from './user/user.module';
-import { LaboratoriesModule } from './laboratories/laboratories.module';
+import { LcUiModule } from './lc-ui/lc-ui.module';
+import { ApiModule } from './api/api.module';
 
 export const CommonModule = angular
   .module('common', [
-    AccountablesModule,
-    UserModule,
-    LaboratoriesModule,
+    LcUiModule,
+    ApiModule,
   ])
   .name;
