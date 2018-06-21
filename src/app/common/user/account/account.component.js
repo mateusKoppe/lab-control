@@ -20,7 +20,7 @@ export const AccountComponent = {
         3: 'Accountable',
       };
       this.UserService.getLoggedUser()
-        .then(user => this.user = user)
+        .then(user => this.user = user);
     }
 
     edit(){
@@ -46,7 +46,7 @@ export const AccountComponent = {
         .then(response => {
           this.user = response.data;
           this.UserService.user = response.data;
-          this.close()
+          this.close();
         });
     }
 

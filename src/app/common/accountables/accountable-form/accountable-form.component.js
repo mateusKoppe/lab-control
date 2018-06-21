@@ -12,7 +12,7 @@ export const AccountableFormComponent = {
   transclude: false,
   templateUrl,
   controller: class AccountableFormController {
-    constructor(UserService){
+    constructor(){
       'ngInject';
     }
 

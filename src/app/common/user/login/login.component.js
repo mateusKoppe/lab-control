@@ -17,10 +17,10 @@ export const LoginComponent = {
 
     loginSubmit(){
       this.UserService.login(this.user)
-        .then(data => this.$state.go('laboratories'))
+        .then(() => this.$state.go('laboratories'))
         .catch(error => {
           alert('Fail to login');
-          console.error('fail to login', error);
+          throw new Error('fail to login', error);
         });
     }
   }

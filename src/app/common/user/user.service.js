@@ -29,7 +29,7 @@ export class UserService {
 
   getUser(token){
     return this.$http.get(`${this.$filter('apiUrl')('user', token)}`)
-      .then(response => response.data)
+      .then(response => response.data);
   }
 
   getLoggedUser(){
@@ -51,7 +51,7 @@ export class UserService {
           deferred.resolve(user);
           this.user = user;
         })
-        .catch(error => deffered.reject(`Invalid user token ${error}`))
+        .catch(error => deferred.reject(`Invalid user token ${error}`));
     } else {
       deferred.reject('No user token in session');
     }

@@ -18,7 +18,7 @@ export const LaboratoriesModule = angular
   .component('laboratory', LaboratoryComponent)
   .component('laboratoryForm', LaboratoryFormComponent)
   .component('laboratories', LaboratoriesComponent)
-  .config(($stateProvider, routeCheckLogin) => {
+  .config(($stateProvider) => {
     'ngInject';
     $stateProvider
       .state('laboratory', {
@@ -28,6 +28,6 @@ export const LaboratoriesModule = angular
       .state('laboratories', {
         url: '/laboratories',
         component: 'laboratories',
-      })
+      });
   })
   .name;

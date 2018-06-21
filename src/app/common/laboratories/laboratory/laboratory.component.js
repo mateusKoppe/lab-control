@@ -24,7 +24,7 @@ export const LaboratoryComponent = {
 
     addToolSubmit(tool){
       this.ToolsService.saveTool(this.laboratory, tool)
-        .then(response => {
+        .then(() => {
           this.addToolAlertOpen = false;
           this.$scope.$broadcast('addTool', tool);
           this.addToolAlertSuccess = true;
@@ -47,7 +47,7 @@ export const LaboratoryComponent = {
 
     deleteLaboratory(){
       this.LaboratoriesService.deleteLaboratory(this.laboratory)
-        .then(response => {
+        .then(() => {
           this.$state.go('laboratories');
         });
     }

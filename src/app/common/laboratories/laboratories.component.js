@@ -41,7 +41,7 @@ export const LaboratoriesComponent = {
         .then(response => {
           this.addFormClose();
           this.$scope.$broadcast('addLaboratory', response.data);
-        })
+        });
     }
   }
 };

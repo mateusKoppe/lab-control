@@ -21,7 +21,7 @@ export const AccountablesListComponent = {
         this.accountables.push(accountable);
       });
       this.$scope.$on('deleteAccountable', (event, removedAccountable) => {
-        this.accountables = this.accountables.filter(accountable => accountable.id != removedAccountable.id)
+        this.accountables = this.accountables.filter(accountable => accountable.id != removedAccountable.id);
       });
     }
 
@@ -31,8 +31,7 @@ export const AccountablesListComponent = {
 
     _loadAccountables(){
       this.AccountablesService.getAccountables()
-        .then(accountables => this.accountables = accountables.data)
-        .catch(error => console.error(error));
+        .then(accountables => this.accountables = accountables.data);
     }
   }
 };

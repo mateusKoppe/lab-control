@@ -13,7 +13,7 @@ export const AppComponent = {
       this.UserService.getLoggedUser()
         .then(user => {
           this.user = user;
-        })
+        });
 
       this.$scope.$on('changeUser', (event, user) => {
         this.user = user;

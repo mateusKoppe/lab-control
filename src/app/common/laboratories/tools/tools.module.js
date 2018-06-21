@@ -14,12 +14,12 @@ export const ToolsModule = angular
   .component('tool', ToolComponent)
   .component('toolForm', ToolFormComponent)
   .service('ToolsService', ToolsService)
-  .config(($stateProvider, routeCheckLogin) => {
+  .config(($stateProvider) => {
     'ngInject';
     $stateProvider
       .state('tool', {
         url: '/tool/{id}',
         component: 'tool',
-      })
+      });
   })
   .name;

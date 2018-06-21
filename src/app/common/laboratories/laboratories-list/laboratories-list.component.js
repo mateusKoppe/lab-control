@@ -26,8 +26,7 @@ export const LaboratoriesListComponent = {
 
     _loadLaboratories(){
       this.LaboratoriesService.getLaboratories()
-        .then(laboratories => this.laboratories = laboratories.data)
-        .catch(error => console.error(error));
+        .then(laboratories => this.laboratories = laboratories.data);
     }
   }
 };

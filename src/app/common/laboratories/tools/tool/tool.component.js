@@ -38,9 +38,9 @@ export const ToolComponent = {
 
     deleteTool(){
       this.ToolsService.deleteTool(this.tool)
-        .then(response => {
-          this.$state.go('laboratory', {id: this.tool.laboratory.id})
-        })
+        .then(() => {
+          this.$state.go('laboratory', {id: this.tool.laboratory.id});
+        });
     }
 
     editFormSubmit(tool){
@@ -48,7 +48,7 @@ export const ToolComponent = {
         .then(response => {
           this.tool = response.data;
           this.closeForm();
-        })
+        });
     }
 
     closeForm(){

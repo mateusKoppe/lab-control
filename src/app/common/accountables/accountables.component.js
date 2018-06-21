@@ -41,7 +41,7 @@ export const AccountablesComponent = {
         .then(response => {
           this.formClose();
           this.$scope.$broadcast('addAccountable', response.data);
-        })
+        });
     }
 
     editFormOpen(){
@@ -58,15 +58,15 @@ export const AccountablesComponent = {
         .then(response => {
           this.formClose();
           this.$scope.$broadcast('editAccountable', response.data);
-        })
+        });
     }
 
     deleteAccountable(){
       this.AccountablesService.deleteAccountable(this.actualAccountable)
-        .then(response => {
+        .then(() => {
           this.$scope.$broadcast('deleteAccountable', this.actualAccountable);
           this.formClose();
-        })
+        });
     }
   }
 };

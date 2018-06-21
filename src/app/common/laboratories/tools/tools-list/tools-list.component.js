@@ -17,7 +17,7 @@ export const ToolsListComponent = {
     $onInit(){
       this.$scope.$on('addTool', (event, tool) => {
         this.tools.push(tool);
-      })
+      });
     }
 
     $onChanges(changes) {
@@ -26,7 +26,7 @@ export const ToolsListComponent = {
         this.ToolsService.getToolsByLaboratory(this.laboratory)
           .then(tools => this.tools = tools.data);
       }
-    };
+    }
 
     toolClick(tool){
       this.$state.go('tool', {id: tool.id});

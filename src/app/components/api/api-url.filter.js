@@ -6,5 +6,5 @@ export const ApiUrlFilter = (ApiService) => {
       url += `?api_token=${token}`;
     }
     return url;
-  }
-}
+  };
+};

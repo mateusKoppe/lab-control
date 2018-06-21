@@ -17,7 +17,7 @@ export const LuiAlertComponent = {
 
     $onInit(){
       this._showing = this.open;
-      this.$scope.$watch('$ctrl.open', value => {
+      this.$scope.$watch('$ctrl.open', () => {
         this.toggleAlert();
       });
       this.printElement = this.open;
@@ -68,7 +68,7 @@ export const LuiAlertComponent = {
     }
 
     _refreshClass(){
-      this.class = {[`lui-alert--active`]: this.showing};
+      this.class = {['lui-alert--active']: this.showing};
     }
   }
 };
