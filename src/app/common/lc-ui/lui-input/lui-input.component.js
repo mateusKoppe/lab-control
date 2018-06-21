@@ -6,6 +6,7 @@ export const LuiInputComponent = {
     type: '@',
     ngModel: '=',
     theme: '<',
+    readonly: '<'
   },
   transclude: true,
   templateUrl,

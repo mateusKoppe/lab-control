@@ -7,6 +7,7 @@ export const LuiSelectComponent = {
     ngModel: '=',
     theme: '<',
     placeholder: '@',
+    readonly: '<'
   },
   transclude: true,
   templateUrl,
