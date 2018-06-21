@@ -54,6 +54,10 @@ lui-select .lui-select{
     &:focus{
       @include dp-shadow(1);
     }
+
+    &[readonly] {
+      pointer-events: none;
+    }
   }
 
   &--primary{
