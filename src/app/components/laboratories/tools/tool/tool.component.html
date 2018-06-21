@@ -15,10 +15,6 @@
         <th>Place: </th>
         <td>{{$ctrl.tool.place}}</td>
       </tr>
-      <tr>
-        <th>Laboratory: </th>
-        <td><a ui-sref="laboratory({id: $ctrl.tool.laboratory.id})">{{$ctrl.tool.laboratory.name}}</a></td>
-      </tr>
     </table>
     <div ng-if="$ctrl.hasPermission" class="group-buttons">
       <button ng-click="$ctrl.editTool()" class="button button--accent">Edit</button>
