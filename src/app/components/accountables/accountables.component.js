@@ -48,9 +48,17 @@ export const AccountablesComponent = {
       this.editFormAlert = true;
     }
 
+    showFormOpen(){
+      this.showFormAlert = true;
+    }
+
     handleAccountableClick(accountable){
       this.actualAccountable = accountable;
-      this.editFormOpen();
+      if (this.UserService.user) {
+        this.editFormOpen();
+      } else {
+        this.showFormOpen();
+      }
     }
 
     editFormSubmit(accountable){

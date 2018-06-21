@@ -8,6 +8,12 @@
   <lui-float-button ng-if="$ctrl.hasPermission" ng-click="$ctrl.addFormOpen()" theme="'accent'">
     <i class="fa fa-plus"></i>
   </lui-float-button>
+  <lui-alert open="$ctrl.showFormAlert">
+    <accountable-form
+      data="$ctrl.actualAccountable"
+      readonly="true">
+    </accountable-form>
+  </lui-alert>
   <lui-alert open="$ctrl.editFormAlert">
     <accountable-form
       data="$ctrl.actualAccountable"

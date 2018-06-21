@@ -8,6 +8,7 @@ export const AccountableFormComponent = {
     hasDelete: '<',
     data: '<',
     hide: '<',
+    readonly: '<'
   },
   transclude: false,
   templateUrl,
