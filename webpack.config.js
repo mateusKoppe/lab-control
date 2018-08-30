@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const extractPlugin = new ExtractTextPlugin({
   filename: 'bundle.css'
-})
+});
 
 module.exports = {
   entry: './app/app.module.js',
@@ -15,7 +15,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'src'), "node_modules"],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   devtool: 'source-map',
   module: {
@@ -27,7 +27,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['es2015']
+              presets: ['env']
             }
           },
         ]
@@ -37,12 +37,12 @@ module.exports = {
         use: extractPlugin.extract({
           use: [
             {
-              loader: "css-loader", options: {
+              loader: 'css-loader', options: {
                 sourceMap: true
               }
             },
             {
-              loader: "sass-loader", options: {
+              loader: 'sass-loader', options: {
                 sourceMap: true
               }
             }
@@ -57,7 +57,7 @@ module.exports = {
       },
       {
         test: value => {
-          if(/src[/\\]index\.html$/.test(value)) return false;
+          if(/src[\/\\]index\.html$/.test(value)) return false;
           if(/\.html$/.test(value)) return true;
           return false;
         },
