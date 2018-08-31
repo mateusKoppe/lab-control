@@ -11,12 +11,12 @@ Just a study project, feel free to see the code and this project in actions.
 
 ## Getting Started
 - Install [NodeJs and NPM](https://nodejs.org/en/)
-- Install the dependencies
+- Install the dependencies:
   ```bash
   npm install
   ```
 - You will need an api, use [labcontrol-api](https://github.com/mateusKoppe/labcontrol-api) for it
-- Configure your api's url in the `ApiServiceProvider`, you'll find the configurations in `src/app/app.module.js`.
+- Configure your api's url in the `ApiServiceProvider`, you'll find the configurations in `src/app/app.module.js`
 - Start your app:
   ```bash
   npm start
