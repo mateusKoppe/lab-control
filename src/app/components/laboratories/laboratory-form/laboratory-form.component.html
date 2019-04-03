@@ -1,0 +1,11 @@
+<form ng-submit="$ctrl.handleSubmit()">
+  <lui-input ng-model="$ctrl.form.name" theme="'primary'">Laboratory</lui-input>
+  <lui-textarea ng-model="$ctrl.form.description" theme="'primary'">Description</lui-textarea>
+  <lui-select ng-model="$ctrl.form.accountable.id" theme="'primary'" placeholder="Accontable">
+    <option ng-value="accountable.id" ng-repeat="accountable in $ctrl.accountables track by accountable.id">{{accountable.name}}</option>
+  </lui-select>
+  <div class="group-buttons">
+    <button class="button button--primary">Save</button>
+    <button type="button" class="button" ng-click="$ctrl.onCancel()">Cancel</button>
+  </div>
+</form>

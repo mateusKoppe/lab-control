@@ -1,0 +1,43 @@
+@import '~app/assets/scss/utils';
+
+lui-alert .lui-alert{
+  background-color: transparentize(black, 1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  height: 100vh;
+  top: 0;
+  transition: .3s all ease;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+  z-index: -1;
+
+  &__escape-area{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 34;
+  }
+
+  &__content{
+    @extend .card;
+    transform: scale(0);
+    transition: .3s all ease;
+    z-index: 35;
+  }
+
+  &--active{
+    background-color: transparentize(black, .4);
+    z-index: 30;
+
+    .lui-alert__content{
+      transform: scale(1);
+    }
+  }
+}

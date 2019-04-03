@@ -1,0 +1,27 @@
+<div class="tool">
+  <header class="tool__header">
+    <a class="header__icon" ui-sref="laboratory({id: $ctrl.tool.laboratory.id})"><i class="fa fa-arrow-left"></i></a>
+    <h2 class="header__title">Tool</h2>
+  </header>
+  <div class="tool__info">
+    <h2>{{$ctrl.tool.name}}</h2>
+    <p>{{$ctrl.tool.description}}</p>
+    <table>
+      <tr>
+        <th>Status: </th>
+        <td>{{$ctrl.tool.status}}</td>
+      </tr>
+      <tr>
+        <th>Place: </th>
+        <td>{{$ctrl.tool.place}}</td>
+      </tr>
+    </table>
+    <div ng-if="$ctrl.hasPermission" class="group-buttons">
+      <button ng-click="$ctrl.editTool()" class="button button--accent">Edit</button>
+      <button ng-click="$ctrl.deleteTool()" class="button button--danger">Delete</button>
+    </div>
+    <lui-alert open="$ctrl.formToolAlertOpen">
+      <tool-form data="$ctrl.tool" on-submit="$ctrl.editFormSubmit(tool)" on-cancel="$ctrl.closeForm()"></tool-form>
+    </lui-alert>
+  </div>
+</div>

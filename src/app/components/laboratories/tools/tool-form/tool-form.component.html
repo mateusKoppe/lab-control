@@ -1,0 +1,14 @@
+<form ng-submit="$ctrl.handleSubmit()">
+  <lui-input ng-model="$ctrl.data.name" theme="'primary'">Name</lui-input>
+  <lui-input ng-model="$ctrl.data.place" theme="'primary'">Place</lui-input>
+  <lui-select ng-model="$ctrl.data.status" theme="'primary'" placeholder="Status">
+    <option value="enable">Enable</option>
+    <option value="alocated">Alocated</option>
+    <option value="disable">Disable</option>
+  </lui-select>
+  <lui-textarea ng-model="$ctrl.data.description" theme="'primary'">Description</lui-textarea>
+  <div class="group-buttons">
+    <button class="button button--primary">Save</button>
+    <button type="button" class="button" ng-click="$ctrl.onCancel()">Cancel</button>
+  </div>
+</form>

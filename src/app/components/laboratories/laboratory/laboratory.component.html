@@ -1,0 +1,42 @@
+<div class="laboratory">
+  <header class="laboratory__header">
+    <a class="header__icon" ui-sref="laboratories"><i class="fa fa-arrow-left"></i></a>
+    <h2 class="header__title">Laboratory</h2>
+  </header>
+  <div class="laboratory__info">
+    <h1>{{$ctrl.laboratory.name}}</h1>
+    <table>
+      <tr>
+        <th>Description:</th>
+        <td>{{$ctrl.laboratory.description}}</td>
+      </tr>
+      <tr>
+        <th>Accountable</th>
+        <td>{{$ctrl.laboratory.accountable.name}}</td>
+      </tr>
+    </table>
+    <div class="group-buttons" ng-if="$ctrl.hasPermission">
+      <button type="button" ng-click="$ctrl.editLaboratory()" class="button button--accent">Edit</button>
+      <button type="button" ng-click="$ctrl.deleteLaboratory()" class="button button--danger">Delete</button>
+    </div>
+    <lui-alert open="$ctrl.editLaboratoryAlertOpen">
+      <laboratory-form
+        data="$ctrl.editForm"
+        on-submit="$ctrl.editLaboratorySubmit(laboratory)"
+        on-cancel="$ctrl.editLaboratoryAlertOpen = false">
+      </laboratory-form>
+    </lui-alert>
+    <h2>Tools</h2>
+    <tools-list laboratory="$ctrl.laboratory"></tools-list>
+  </div>
+  <lui-float-button ng-if="$ctrl.hasPermission" ng-click="$ctrl.addToolAlertOpen = true" theme="'accent'"><i class="fa fa-plus"></i></lui-float-button>
+  <lui-alert open="$ctrl.addToolAlertOpen">
+    <tool-form on-submit="$ctrl.addToolSubmit(tool)" on-cancel="$ctrl.addToolAlertOpen = false"></tool-form>
+  </lui-alert>
+  <lui-alert open="$ctrl.addToolAlertSuccess">
+    <h2>The tool was successfully created</h2>
+    <div class="group-buttons">
+      <button class="button button--primary" ng-click="$ctrl.addToolAlertSuccess = false">Close</button>
+    </div>
+  </lui-alert>
+</div>

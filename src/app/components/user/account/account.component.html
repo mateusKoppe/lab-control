@@ -1,0 +1,48 @@
+<div class="account">
+  <header class="account__header">
+    <h2 class="header__title">Account</h2>
+  </header>
+  <div class="account__info">
+    <h2>{{$ctrl.user.name}}</h2>
+    <table>
+      <tr>
+        <th>E-mail: </th>
+        <td>{{$ctrl.user.email}}</td>
+      </tr>
+      <tr>
+        <th>Permission: </th>
+        <td>{{$ctrl.permissionsLabel[$ctrl.user.permission]}}</td>
+      </tr>
+    </table>
+    <div class="group-buttons">
+      <button ng-click="$ctrl.edit()" class="button button--accent">Edit</button>
+      <button ng-click="$ctrl.logout()" class="button">Logout</button>
+    </div>
+    <lui-alert open="$ctrl.formOpen">
+      <accountable-form
+        data="$ctrl.user"
+        on-submit="$ctrl.editFormSubmit(accountable)"
+        on-cancel="$ctrl.close()"
+        hide="{
+          password: true,
+          repeatPassword: true,
+        }">
+      </accountable-form>
+    </lui-alert>
+    <div class="group-buttons">
+      <button ng-click="$ctrl.editPassword()" class="button button--primary">Change password</button>
+    </div>
+    <lui-alert open="$ctrl.formPasswordOpen">
+      <accountable-form
+        data="$ctrl.user"
+        on-submit="$ctrl.editFormSubmit(accountable)"
+        on-cancel="$ctrl.close()"
+        hide="{
+          name: true,
+          email: true,
+          permission: true,
+        }">
+      </accountable-form>
+    </lui-alert>
+  </div>
+</div>

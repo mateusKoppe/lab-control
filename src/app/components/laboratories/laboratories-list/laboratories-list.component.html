@@ -1,0 +1,5 @@
+<div class="laboratories-list">
+  <lui-list>
+    <li ng-click="$ctrl.laboratoryClick(laboratory)" ng-repeat="laboratory in $ctrl.laboratories track by laboratory.id">{{laboratory.name}}</li>
+  </lui-list>
+</div>

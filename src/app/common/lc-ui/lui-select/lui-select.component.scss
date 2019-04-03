@@ -1,0 +1,70 @@
+@import '~app/assets/scss/utils';
+
+@mixin lui-select-color($color){
+  .lui-select__label{
+    color: $color;
+  }
+  .lui-select__input{
+    border-color: $color;
+  }
+}
+
+lui-select .lui-select{
+  @include lui-select-color(gray("400"));
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  // &::after{
+  //   content: "\f0d7";
+  //   font-family: "FontAwesome";
+  //   right: 20px;
+  //   position: absolute;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  // }
+
+  &__label{
+    background-color: white;
+    left: 12px;
+    padding: 0 2px;
+    position: absolute;
+    top: -4px;
+  }
+
+  &__input{
+    background-color: white;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    font-size: 16px;
+    height: 2.9em;
+    line-height: 2.9em;
+    margin: .3em .1em;
+    outline: none;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    padding-top: .2em;
+    transition: .3s all ease;
+    width: 100%;
+
+    &:focus{
+      @include dp-shadow(1);
+    }
+
+    &[readonly] {
+      pointer-events: none;
+    }
+  }
+
+  &--primary{
+    @include lui-select-color(primary-color());
+  }
+
+  &--accent{
+    @include lui-select-color(accent-color());
+  }
+}

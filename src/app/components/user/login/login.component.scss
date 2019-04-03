@@ -1,0 +1,26 @@
+@import '~app/assets/scss/utils';
+
+login .login{
+  @extend .page;
+
+  &__header{
+    @extend .card__header;
+    @extend .card__header--container;
+  }
+
+  &__card{
+    @extend .card;
+    @extend .card--container;
+    @extend .card--with-header;
+    padding: 45px 20px;
+
+    form{
+      max-width: 400px;
+      margin: auto;
+    }
+
+    &__actions{
+      text-align: right;
+    }
+  }
+}

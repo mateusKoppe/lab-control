@@ -1,0 +1,15 @@
+<div class="laboratories">
+  <header class="laboratories__header">
+    <h2 class="header__title">Laboratories</h2>
+  </header>
+  <div class="laboratories__info">
+    <laboratories-list></laboratories-list>
+  </div>
+  <lui-float-button ng-if="$ctrl.hasPermission" ng-click="$ctrl.addFormOpen()" theme="'accent'"><i class="fa fa-plus"></i></lui-float-button>
+  <lui-alert open="$ctrl.addFormAlert">
+    <laboratory-form
+      on-submit="$ctrl.createLaboratory(laboratory)"
+      on-cancel="$ctrl.addFormClose()">
+    </laboratory-form>
+  </lui-alert>
+</div>

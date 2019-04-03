@@ -1,0 +1,51 @@
+<header class="main-header">
+  <ul class="main-header__tabs">
+    <li class="main-header__tabs__item">
+      <a class="main-header__tabs__link" ui-sref-active="main-header__tabs__link--active" ui-sref="laboratories">
+        Laboratories
+      </a>
+    </li>
+    <li class="main-header__tabs__item">
+      <a class="main-header__tabs__link" ui-sref-active="main-header__tabs__link--active" ui-sref="accountables">
+        Accountables
+      </a>
+    </li>
+    <li class="main-header__tabs__item" ng-if="!$ctrl.user">
+      <a class="main-header__tabs__link" ui-sref-active="main-header__tabs__link--active" ui-sref="login">
+        Login
+      </a>
+    </li>
+    <li class="main-header__tabs__item" ng-if="$ctrl.user">
+      <a class="main-header__tabs__link" ui-sref-active="main-footer__tabs__link--active" ui-sref="account">
+        Account
+      </a>
+    </li>
+  </ul>
+</header>
+<main>
+  <div ui-view></div>
+</main>
+<footer class="main-footer">
+  <ul class="main-footer__tabs">
+    <li class="main-footer__tabs__item">
+      <a class="main-footer__tabs__link" ui-sref-active="main-footer__tabs__link--active" ui-sref="laboratories">
+        <i class="fa fa-building"></i>
+      </a>
+    </li>
+    <li class="main-footer__tabs__item">
+      <a class="main-footer__tabs__link" ui-sref-active="main-footer__tabs__link--active" ui-sref="accountables">
+        <i class="fa fa-users"></i>
+      </a>
+    </li>
+    <li class="main-footer__tabs__item" ng-if="!$ctrl.user">
+      <a class="main-footer__tabs__link" ui-sref-active="main-footer__tabs__link--active" ui-sref="login">
+        <i class="fa fa-user"></i>
+      </a>
+    </li>
+    <li class="main-footer__tabs__item" ng-if="$ctrl.user">
+      <a class="main-footer__tabs__link" ui-sref-active="main-footer__tabs__link--active" ui-sref="account">
+        <i class="fa fa-user"></i>
+      </a>
+    </li>
+  </ul>
+</footer>

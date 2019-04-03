@@ -1,0 +1,58 @@
+@import '~app/assets/scss/utils';
+
+@mixin lui-input-color($color){
+  .lui-input__label{
+    color: $color;
+  }
+  .lui-input__input{
+    border-color: $color;
+  }
+}
+
+lui-input .lui-input{
+  @include lui-input-color(gray("400"));
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__label{
+    background-color: white;
+    left: 12px;
+    padding: 0 2px;
+    position: absolute;
+    top: -4px;
+  }
+
+  &__input{
+    background-color: white;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    color: $text-color;
+    font-size: 16px;
+    height: 2.9em;
+    line-height: 2.9em;
+    margin: .3em .1em;
+    outline: none;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    padding-top: .2em;
+    transition: .3s all ease;
+    width: 100%;
+
+    &:focus{
+      @include dp-shadow(1);
+    }
+  }
+
+  &--primary{
+    @include lui-input-color(primary-color());
+  }
+
+  &--accent{
+    @include lui-input-color(accent-color());
+  }
+}

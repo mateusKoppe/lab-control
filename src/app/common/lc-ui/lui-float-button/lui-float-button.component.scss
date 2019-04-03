@@ -1,0 +1,65 @@
+@import '~app/assets/scss/utils';
+
+@mixin lui-float-button-color($color){
+  .lui-float-button__button{
+    background-color: $color;
+    &:focus{
+      background-color: darken($color, 5);
+    }
+
+    &:hover{
+      background-color: darken($color, 10);
+    }
+
+    &:active{
+      background-color: darken($color, 25);
+    }
+  }
+}
+
+lui-float-button .lui-float-button{
+  @include lui-float-button-color(gray("600"));
+  border-radius: 100%;
+  bottom: 12px + $footer-height;
+  height: 63px;
+  position: fixed;
+  right: 15px;
+  width: 63px;
+  z-index: 20;
+
+  @media (min-width: 1050px){
+    bottom: 50px;
+    right: calc(50% - 332px);
+  }
+
+  .lui-float-button__button{
+    @include dp-shadow(3);
+    color: white;
+    cursor: pointer;
+    border-radius: 100%;
+    font-size: 24px;
+    border: 0;
+    height: 100%;
+    padding: 0;
+    outline: none;
+    width: 100%;
+    transition: .3s all ease;
+
+    &:hover{
+      transition-duration: .2;
+    }
+
+    &:active{
+      @include dp-shadow(5);
+      transition-duration: .1s;
+    }
+  }
+
+  &--primary{
+    @include lui-float-button-color(primary-color());
+  }
+
+  &--accent{
+    @include lui-float-button-color(accent-color());
+  }
+}
