@@ -1,0 +1,65 @@
+version: '3.7'
+
+services:
+
+  labcontrol-php:
+    container_name: labcontrol-php
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    working_dir: /var/www
+    links:
+      - labcontrol-database
+    volumes:
+      - ./api/:/var/www
+    environment:
+      - "DB_PORT=3306"
+      - "DB_HOST=labcontrol-database"
+      - "DB_DATABASE=labcontrol"
+      - "DB_USERNAME=root"
+      - "DB_PASSWORD=root"
+
+
+  labcontrol-web:
+    container_name: labcontrol-web
+    depends_on:
+      - labcontrol-php
+    build:
+      context: ./
+      dockerfile: web.dockerfile
+    working_dir: /var/www
+    volumes:
+      - ./api:/var/www
+    ports:
+      - 8000:80
+
+  labcontrol-database:
+    container_name: labcontrol-database
+    image: mysql:5.7
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - "MYSQL_DATABASE=labcontrol"
+      - "MYSQL_USER=root"
+      - "MYSQL_PASSWORD=root"
+      - "MYSQL_ROOT_PASSWORD=root"
+    ports:
+        - "33061:3306"
+
+  labcontrol-node:
+    container_name: labcontrol-node
+    volumes:
+      - ./webapp:/usr/src/app
+    command: npm start
+    environment:
+      env_file: .env
+      NODE_ENV: development
+    build:
+      context: .
+      dockerfile: "node.dockerfile"
+    ports:
+      - "3000:8080"
+    restart: always
+
+volumes:
+  dbdata:
